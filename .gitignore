@@ -1,6 +1,5 @@
 .conda/
 
-
 # file too large
 hw5/mnist.scale.txt
 hw5/mnist.scale.t.txt
