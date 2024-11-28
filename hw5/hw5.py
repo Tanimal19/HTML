@@ -87,8 +87,6 @@ def problem10(result_file="result_10.csv", round=1):
                 best_lambda = l
                 best_model = m
 
-        print("best model: ", best_model.get_decfun()[0])
-
         # test on best lambda
         _, p_acc_t, _ = predict(lables_t, features_t, best_model)
         eout = 1 - p_acc_t[0] / 100
