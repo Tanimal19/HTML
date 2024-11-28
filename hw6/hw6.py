@@ -99,8 +99,8 @@ def problem11():
     with open(f"hw6/{result_file}", "w") as f:
         f.write("C,gamma,margin\n")
 
-    C_VAL = [0.1]
-    GAMMA_VAL = [0.1]
+    C_VAL = [0.1, 1, 10]
+    GAMMA_VAL = [0.1, 1, 10]
 
     for C in C_VAL:
         for GAMMA in GAMMA_VAL:
