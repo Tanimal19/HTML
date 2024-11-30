@@ -1,8 +1,9 @@
 import sys
+import time
 import numpy as np
 from scipy.sparse import csr_matrix
 from libsvm.svmutil import *
-import time
+from multiprocessing import Pool
 
 
 def read_data(filename):
@@ -60,8 +61,6 @@ def read_data(filename):
 def problem10():
     print(">> problem 10 start")
 
-    labels, features = read_data("hw6/mnist.scale.txt")
-
     result_file = "result10.csv"
     with open(f"hw6/{result_file}", "w") as f:
         f.write("C,Q,#sv\n")
@@ -76,7 +75,7 @@ def problem10():
             print(f"start training...")
             start_time = time.time()
 
-            prob = svm_problem(labels, features, isKernel=True)
+            prob = svm_problem(LABELS, FEATURES, isKernel=True)
             # -t 1: polynomial kernel, -d: degree, -c: cost
             param = svm_parameter(f"-t 1 -d {Q} -c {C} -h 0 -q")
             m = svm_train(prob, param)
@@ -93,7 +92,7 @@ def problem10():
 def problem11():
     print(">> problem 11 start")
 
-    labels, features = read_data("hw6/mnist.scale.txt")
+    labels, features = read_data("data/mnist.scale.txt")
 
     result_file = "result11.csv"
     with open(f"hw6/{result_file}", "w") as f:
@@ -141,58 +140,63 @@ def problem11():
 def problem12():
     print(">> problem 12 start")
 
-    labels, features = read_data("hw6/mnist.scale.txt")
-
     result_file = "result12.csv"
     with open(f"hw6/{result_file}", "w") as f:
         f.write("round,best_gamma\n")
 
+    round = 128
+    inputs = []
+    for i in range (1, round+1):
+        inputs.append((i, np.random.randint(50000)))
+
+    p = Pool(round)
+    results = p.starmap(find_best_gamma, inputs)
+
+    with open(f"hw6/{result_file}", "a") as f:
+        for i, best_gamma in enumerate(results):
+            f.write(f"{i},{best_gamma}\n")
+
+
+def find_best_gamma(pid, seed):
+    print(f"{pid} start")
+
+    np.random.seed(seed)
+    idx = np.random.permutation(LABELS.shape[0])
+    print(idx[:10])
+    idx_val = idx[:200]
+    idx_train = idx[200:]
+
+    labels_val = LABELS[idx_val]
+    features_val = FEATURES[idx_val]
+    labels_train = LABELS[idx_train]
+    features_train = FEATURES[idx_train]
+
     C = 1
     GAMMA_VAL = [0.01, 0.1, 1, 10, 100]
 
-    for round in range(128):
-        print(f"\n--- round {round+1} ---")
+    best_gamma = None
+    smallest_eval = float("inf")
 
-        # randomly select 200 samples for validation
-        idx = np.random.permutation(labels.shape[0])
-        idx_val = idx[:200]
-        idx_train = idx[200:]
+    for GAMMA in GAMMA_VAL:
+        print(f"{pid} train on {GAMMA}")
+        prob = svm_problem(labels_train, features_train, isKernel=True)
+        # -t 2: radial basis function kernel, -g: gamma, -c: cost
+        param = svm_parameter(f"-t 2 -g {GAMMA} -c {C} -q")
+        m = svm_train(prob, param)
 
-        labels_val = labels[idx_val]
-        features_val = features[idx_val]
-        labels_train = labels[idx_train]
-        features_train = features[idx_train]
+        _, p_acc, _ = svm_predict(labels_val, features_val, m)
+        eval = 1 - p_acc[0] / 100
 
-        best_gamma = None
-        smallest_eval = float("inf")
-
-        for GAMMA in GAMMA_VAL:
-            print(f"\n--- C={C}, gamma={GAMMA} ---")
-
-            print(f"start training...")
-            start_time = time.time()
-
-            prob = svm_problem(labels_train, features_train, isKernel=True)
-            # -t 2: radial basis function kernel, -g: gamma, -c: cost
-            param = svm_parameter(f"-t 2 -g {GAMMA} -c {C} -q")
-            m = svm_train(prob, param)
-
-            print("finished time %ss" % (time.time() - start_time))
-
-            print(f"start validating...")
-            _, p_acc, _ = svm_predict(labels_val, features_val, m)
-            eval = 1 - p_acc[0] / 100
-            print(f"eval={eval}")
-
-            if eval < smallest_eval:
+        if eval < smallest_eval:
+            best_gamma = GAMMA
+            smallest_eval = eval
+        elif eval == smallest_eval:
+            if GAMMA < best_gamma:
                 best_gamma = GAMMA
-                smallest_eval = eval
-            elif eval == smallest_eval:
-                if GAMMA < best_gamma:
-                    best_gamma = GAMMA
 
-        with open(f"hw6/{result_file}", "a") as f:
-            f.write(f"{round+1},{best_gamma}\n")
+    print(f"{pid} best gamma: {best_gamma}")
+
+    return best_gamma
 
 
 def main():
@@ -201,6 +205,9 @@ def main():
         return
 
     problem = sys.argv[1]
+
+    global LABELS, FEATURES
+    LABELS, FEATURES = read_data("data/mnist.scale.txt")
 
     root_start_time = time.time()
 
@@ -214,6 +221,5 @@ def main():
         print("invalid problem number")
 
     print("\ntotal time %ss" % (time.time() - root_start_time))
-
 
 main()

@@ -1,4 +1,5 @@
 .conda/
+data/
 
 # file too large
 **/mnist.scale.txt*
