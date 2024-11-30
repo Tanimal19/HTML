@@ -4,6 +4,7 @@ import numpy as np
 from scipy.sparse import csr_matrix
 from libsvm.svmutil import *
 from multiprocessing import Pool
+import multiprocessing
 
 
 def read_data(filename):
@@ -92,10 +93,8 @@ def problem10():
 def problem11():
     print(">> problem 11 start")
 
-    labels, features = read_data("data/mnist.scale.txt")
-
     result_file = "result11.csv"
-    with open(f"hw6/{result_file}", "w") as f:
+    with open(f"hw6/{result_file}", "a") as f:
         f.write("C,gamma,margin\n")
 
     C_VAL = [0.1, 1, 10]
@@ -109,9 +108,9 @@ def problem11():
             print(f"start training...")
             start_time = time.time()
 
-            prob = svm_problem(labels, features, isKernel=True)
+            prob = svm_problem(LABELS, FEATURES, isKernel=True)
             # -t 2: radial basis function kernel, -g: gamma, -c: cost
-            param = svm_parameter(f"-t 2 -g {GAMMA} -c {C} -h 0 -q")
+            param = svm_parameter(f"-t 2 -g {GAMMA} -c {C} -q")
             m = svm_train(prob, param)
 
             print("finished time %ss" % (time.time() - start_time))
@@ -123,8 +122,8 @@ def problem11():
             # exclude no sv, since alpha is 0
             w = np.zeros(len(sv_idx) + 1)
             for i, si in enumerate(sv_idx):
-                x_i = features[si - 1]
-                y_i = labels[si - 1]
+                x_i = FEATURES[si - 1]
+                y_i = LABELS[si - 1]
 
                 w_i = alpha[i] * y_i * x_i
                 w[i] = np.linalg.norm(w_i)
@@ -144,59 +143,38 @@ def problem12():
     with open(f"hw6/{result_file}", "w") as f:
         f.write("round,best_gamma\n")
 
-    round = 128
+    round = 2
+    cpus = multiprocessing.cpu_count()
+
     inputs = []
     for i in range(1, round + 1):
-        inputs.append((i, np.random.randint(50000)))
+        idx = np.random.permutation(LABELS.shape[0])
+        idx_val = idx[:200]
+        idx_train = idx[200:]
 
-    p = Pool(round)
-    results = p.starmap(find_best_gamma, inputs)
+        for GAMMA in [0.01, 0.1, 1, 10, 100]:
+            inputs.append((i, idx_val, idx_train, GAMMA))
 
-    with open(f"hw6/{result_file}", "a") as f:
-        for i, best_gamma in enumerate(results):
-            f.write(f"{i},{best_gamma}\n")
+    print(inputs[:10])
+
+    p = Pool(cpus)
+    results = p.starmap(train_model, inputs)
+    p.close()
+
+    print(results)
 
 
-def find_best_gamma(pid, seed):
-    print(f"{pid} start")
+def train_model(task_id, idx_train, idx_val, GAMMA):
+    print(f"task {task_id} gamma={GAMMA} start")
+    prob = svm_problem(LABELS[idx_train], FEATURES[idx_train], isKernel=True)
+    # -t 2: radial basis function kernel, -g: gamma, -c: cost
+    param = svm_parameter(f"-t 2 -g {GAMMA} -c 1 -q")
+    m = svm_train(prob, param)
 
-    np.random.seed(seed)
-    idx = np.random.permutation(LABELS.shape[0])
-    print(idx[:10])
-    idx_val = idx[:200]
-    idx_train = idx[200:]
+    _, p_acc, _ = svm_predict(LABELS[idx_val], FEATURES[idx_val], m)
+    eval = 1 - p_acc[0] / 100
 
-    labels_val = LABELS[idx_val]
-    features_val = FEATURES[idx_val]
-    labels_train = LABELS[idx_train]
-    features_train = FEATURES[idx_train]
-
-    C = 1
-    GAMMA_VAL = [0.01, 0.1, 1, 10, 100]
-
-    best_gamma = None
-    smallest_eval = float("inf")
-
-    for GAMMA in GAMMA_VAL:
-        print(f"{pid} train on {GAMMA}")
-        prob = svm_problem(labels_train, features_train, isKernel=True)
-        # -t 2: radial basis function kernel, -g: gamma, -c: cost
-        param = svm_parameter(f"-t 2 -g {GAMMA} -c {C} -q")
-        m = svm_train(prob, param)
-
-        _, p_acc, _ = svm_predict(labels_val, features_val, m)
-        eval = 1 - p_acc[0] / 100
-
-        if eval < smallest_eval:
-            best_gamma = GAMMA
-            smallest_eval = eval
-        elif eval == smallest_eval:
-            if GAMMA < best_gamma:
-                best_gamma = GAMMA
-
-    print(f"{pid} best gamma: {best_gamma}")
-
-    return best_gamma
+    return (task_id, eval)
 
 
 def main():
