@@ -1,0 +1,4 @@
+>> read data/mnist.scale.txt
+read labels:  (12396,)
+read features:  (12396, 781)
+>> problem 12 start
