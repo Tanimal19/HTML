@@ -101,8 +101,8 @@ def problem11():
     GAMMA_VAL = [0.1, 1, 10]
 
     for C in C_VAL:
-        for GAMMA in GAMMA_VAL:
-            print(f"\n--- C={C}, gamma={GAMMA} ---")
+        for gamma in GAMMA_VAL:
+            print(f"\n--- C={C}, gamma={gamma} ---")
 
             # if m is None:
             print(f"start training...")
@@ -110,7 +110,7 @@ def problem11():
 
             prob = svm_problem(LABELS, FEATURES, isKernel=True)
             # -t 2: radial basis function kernel, -g: gamma, -c: cost
-            param = svm_parameter(f"-t 2 -g {GAMMA} -c {C} -q")
+            param = svm_parameter(f"-t 2 -g {gamma} -c {C} -q")
             m = svm_train(prob, param)
 
             print("finished time %ss" % (time.time() - start_time))
@@ -133,17 +133,15 @@ def problem11():
             print(f"margin={margin}")
 
             with open(f"hw6/{result_file}", "a") as f:
-                f.write(f"{C},{GAMMA},{margin}\n")
+                f.write(f"{C},{gamma},{margin}\n")
 
 
 def problem12():
     print(">> problem 12 start")
 
     result_file = "result12.csv"
-    with open(f"hw6/{result_file}", "w") as f:
-        f.write("round,best_gamma\n")
 
-    round = 2
+    round = 128
     cpus = multiprocessing.cpu_count()
 
     inputs = []
@@ -152,29 +150,31 @@ def problem12():
         idx_val = idx[:200]
         idx_train = idx[200:]
 
-        for GAMMA in [0.01, 0.1, 1, 10, 100]:
-            inputs.append((i, idx_val, idx_train, GAMMA))
-
-    print(inputs[:10])
+        for gamma in [0.01, 0.1, 1, 10, 100]:
+            inputs.append((i, idx_val, idx_train, gamma))
 
     p = Pool(cpus)
     results = p.starmap(train_model, inputs)
     p.close()
+    
+    with open(f"hw6/{result_file}", "w") as f:
+        f.write("round,gamma,eval\n")
 
-    print(results)
+        for (round, gamma, eval) in results:
+            f.write(f"{round},{gamma},{eval}\n")
 
 
-def train_model(task_id, idx_train, idx_val, GAMMA):
-    print(f"task {task_id} gamma={GAMMA} start")
+def train_model(round, idx_train, idx_val, gamma):
+    print(f"task {round} gamma={gamma} start")
     prob = svm_problem(LABELS[idx_train], FEATURES[idx_train], isKernel=True)
     # -t 2: radial basis function kernel, -g: gamma, -c: cost
-    param = svm_parameter(f"-t 2 -g {GAMMA} -c 1 -q")
+    param = svm_parameter(f"-t 2 -g {gamma} -c 1 -q")
     m = svm_train(prob, param)
 
     _, p_acc, _ = svm_predict(LABELS[idx_val], FEATURES[idx_val], m)
     eval = 1 - p_acc[0] / 100
 
-    return (task_id, eval)
+    return (round, gamma, eval)
 
 
 def main():
