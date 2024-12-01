@@ -1,4 +1,5 @@
 .conda/
+.venv/
 data/
 
 # file too large
