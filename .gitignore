@@ -4,3 +4,4 @@ data/
 # file too large
 **/mnist.scale.txt*
 **/mnist.scale.t.txt*
+**/*.pkl
