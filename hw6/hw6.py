@@ -63,7 +63,7 @@ def problem10():
     print(">> problem 10 start")
 
     result_file = "result10.csv"
-    with open(f"hw6/{result_file}", "w") as f:
+    with open(f"hw6/{result_file}", "a") as f:
         f.write("C,Q,#sv\n")
 
     C_VAL = [0.1, 1, 10]
@@ -78,7 +78,7 @@ def problem10():
 
             prob = svm_problem(LABELS, FEATURES, isKernel=True)
             # -t 1: polynomial kernel, -d: degree, -c: cost
-            param = svm_parameter(f"-t 1 -d {Q} -c {C} -h 0 -q")
+            param = svm_parameter(f"-t 1 -d {Q} -c {C} -g 1 -r 1 -q")
             m = svm_train(prob, param)
 
             print("finished time %ss" % (time.time() - start_time))
