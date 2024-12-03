@@ -51,3 +51,128 @@ training time 568.7661442756653s
 start testing...
 
 test time 484.38656425476074s
+
+
+--- 1203_0035 ---
+
+start preprocessing...
+       is_night_game  ...  home_pitcher_hollade01
+0                  0  ...                     0.0
+1                  1  ...                     0.0
+2                  1  ...                     0.0
+3                  1  ...                     0.0
+4                  1  ...                     0.0
+...              ...  ...                     ...
+11062              1  ...                     0.0
+11063              0  ...                     0.0
+11064              1  ...                     0.0
+11065              1  ...                     0.0
+11066              1  ...                     0.0
+
+[11067 rows x 2405 columns]
+0        1
+1        0
+2        1
+3        1
+4        0
+        ..
+11062    1
+11063    0
+11064    1
+11065    0
+11066    0
+Name: home_team_win, Length: 11067, dtype: int64
+      is_night_game  ...  home_pitcher_hollade01
+0                 0  ...                       0
+1                 1  ...                       0
+2                 1  ...                       0
+3                 0  ...                       0
+4                 0  ...                       0
+...             ...  ...                     ...
+6180              1  ...                       0
+6181              0  ...                       0
+6182              1  ...                       0
+6183              0  ...                       0
+6184              1  ...                       0
+
+[6185 rows x 2405 columns]
+
+
+--- ver.svc_rbf_1203_0037 ---
+
+start preprocessing...
+       is_night_game  ...  away_pitcher_bardlu01
+0                  0  ...                    0.0
+1                  1  ...                    0.0
+2                  1  ...                    0.0
+3                  1  ...                    0.0
+4                  1  ...                    0.0
+...              ...  ...                    ...
+11062              1  ...                    0.0
+11063              0  ...                    0.0
+11064              1  ...                    0.0
+11065              1  ...                    0.0
+11066              1  ...                    0.0
+
+[11067 rows x 2405 columns]
+0        1
+1        0
+2        1
+3        1
+4        0
+        ..
+11062    1
+11063    0
+11064    1
+11065    0
+11066    0
+Name: home_team_win, Length: 11067, dtype: int64
+      is_night_game  ...  away_pitcher_bardlu01
+0                 0  ...                      0
+1                 1  ...                      0
+2                 1  ...                      0
+3                 0  ...                      0
+4                 0  ...                      0
+...             ...  ...                    ...
+6180              1  ...                      0
+6181              0  ...                      0
+6182              1  ...                      0
+6183              0  ...                      0
+6184              1  ...                      0
+
+[6185 rows x 2405 columns]
+start training...
+
+training time 684.2048847675323s
+start testing...
+
+test time 625.8690252304077s
+
+
+--- ver.svc_rbf_1203_0110 ---
+
+start preprocessing...
+
+preprocessing time 2.4009251594543457s
+start training...
+
+kernel: poly, gamma: scale, score: 0.55420054200542, time: 496.70129132270813s
+
+kernel: rbf, gamma: scale, score: 0.564137308039747, time: 647.3813827037811s
+
+kernel: rbf, gamma: 0.01, score: 0.5537488708220416, time: 658.1975040435791s
+
+kernel: rbf, gamma: 0.1, score: 0.5555555555555556, time: 869.6802246570587s
+
+kernel: linear, gamma: 0.01, score: 0.530713640469738, time: 895.7981886863708s
+
+kernel: linear, gamma: 0.1, score: 0.530713640469738, time: 896.9280104637146s
+
+kernel: linear, gamma: scale, score: 0.530713640469738, time: 898.0662996768951s
+
+kernel: poly, gamma: 0.01, score: 0.547877145438121, time: 911.2155723571777s
+
+kernel: poly, gamma: 0.1, score: 0.4986449864498645, time: 1367.3844697475433s
+start testing...
+
+test time 517.9164488315582s

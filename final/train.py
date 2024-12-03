@@ -1,3 +1,5 @@
+
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
@@ -6,22 +8,25 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 import time
 from datetime import datetime
+from multiprocessing import Pool
+import multiprocessing
 
 pd.options.mode.chained_assignment = None
 
-RANDOM_STATE = 42
-TRAIN_METHOD = "svc_rbf"
+
+RANDOM_STATE = None
+VER_NAME = "svc_rbf" + "_" + str(datetime.now().strftime("%m%d_%H%M"))
 DATA_DIR = "_data"
 OUTPUT_DIR = "output"
+
 
 def fill_nan(df):
     df["is_night_game"] = df["is_night_game"].astype(bool)
 
-    # numerical columns - fill with linear interpolation, ffill, bfill and standardize
+    # numerical columns - fill with mean and standardize
     num_df = df[df.select_dtypes(include=['int64', 'float64']).columns]
-    num_df = num_df.interpolate(method="linear")
-    num_df = num_df.ffill().bfill()
-
+    imputer = SimpleImputer(strategy='mean')
+    num_df[num_df.columns] = imputer.fit_transform(num_df)
     scaler = StandardScaler()
     num_df[num_df.columns] = scaler.fit_transform(num_df)
 
@@ -32,8 +37,9 @@ def fill_nan(df):
 
     # boolean columns - randomly select 0 or 1
     bool_df = df[df.select_dtypes(include=['bool']).columns]
-    bool_df = bool_df.map({True: 1, False: 0})
-    bool_df = bool_df.map(lambda x: x if pd.notnull(x) else bool(pd.np.random.choice([0, 1])))
+    for col in bool_df.columns:
+        bool_df[col] = bool_df[col].map({True: 1, False: 0})
+        bool_df[col] = bool_df[col].map(lambda x: x if pd.notnull(x) else bool(pd.np.random.choice([0, 1])))
 
     df = pd.concat([bool_df, num_df, cat_df], axis=1)
     return df
@@ -53,16 +59,72 @@ def fill_missing_column(df1, df2):
 
     return full_df1, full_df2
 
+def preprocess():
+    print("start preprocessing...")
+    preprocess_start_time = time.time()
+
+    train_data = pd.read_csv(f"{DATA_DIR}/train_data.csv")
+    X_test = pd.read_csv(f"{DATA_DIR}/same_season_test_data.csv")
+    
+    DROP_FEATURES = ["id"]
+    X = train_data.drop(["home_team_win", "date"] + DROP_FEATURES, axis=1)
+    X_test = X_test.drop(DROP_FEATURES, axis=1)
+    y = train_data["home_team_win"].map({True: 1, False: 0})
+
+    X = fill_nan(X)
+    X_test = fill_nan(X_test)
+    X, X_test = fill_missing_column(X, X_test)
+
+    print("\npreprocessing time %ss" % (time.time() - preprocess_start_time))
+
+    return X, y, X_test
+
+def train_task(kernel, gamma):
+    print(f"\nstart training... kernel: {kernel}, gamma: {gamma}")
+    task_start_time = time.time()
+
+    model = SVC(kernel=kernel, gamma=gamma, random_state=RANDOM_STATE)
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_val)
+    score = accuracy_score(y_val, y_pred)
+
+    print(f"\nkernel: {kernel}, gamma: {gamma}, score: {score}, time: {time.time() - task_start_time}s")
+
+    return model, score
+
 def train(X, y):
     print("start training...")
     train_start_time = time.time()
+
+    global X_train, X_val, y_train, y_val;
+    X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=RANDOM_STATE)
+
+    kernel_list = ['linear', 'poly', 'rbf']
+    gamma_list = ['scale', 0.01, 0.1]
+
+    cpus = multiprocessing.cpu_count()
+    inputs = []
+    for kernel in kernel_list:
+        for gamma in gamma_list:
+            inputs.append((kernel, gamma))
     
-    model = SVC(kernel="rbf", gamma='auto', random_state=RANDOM_STATE)
-    model.fit(X, y)
+    p = Pool(cpus if len(inputs) > cpus else len(inputs))
+    results = p.starmap(train_task, inputs)
+    
+    best_score = -1
+    best_model = None
+    best_kernel = ""
+    best_gamma = ""
 
-    print("\ntraining time %ss" % (time.time() - train_start_time))
+    for (model, score), (kernel, gamma) in zip(results, inputs):
+        if score > best_score:
+            best_score = score
+            best_model = model
+            best_kernel = kernel
+            best_gamma = gamma
 
-    return model
+    return best_model
+
 
 def predict(model, X_test):
     print("start testing...")
@@ -79,27 +141,10 @@ def predict(model, X_test):
     return df
 
 
-train_data = pd.read_csv(f"{DATA_DIR}/train_data.csv")
-X_test = pd.read_csv(f"{DATA_DIR}/same_season_test_data.csv")
+print(f"\n\n--- ver.{VER_NAME} ---\n")
 
-# Preprocess
-print("start preprocessing...")
-DROP_FEATURES = ["id"]
-X = train_data.drop(["home_team_win", "date"] + DROP_FEATURES, axis=1)
-X_test = X_test.drop(DROP_FEATURES, axis=1)
-y = train_data["home_team_win"].map({True: 1, False: 0})
+X, y, X_test = preprocess()
+model = train(X, y)
+result = predict(model, X_test)
 
-X = fill_nan(X)
-X_test = fill_nan(X_test)
-X, X_test = fill_missing_column(X, X_test)
-
-print(X)
-print(y)
-print(X_test)
-
-
-# model = train(X, y)
-# result = predict(model, X_test)
-
-# current_time = datetime.now().strftime("%m%d_%H%M")
-# result.to_csv(f"{OUTPUT_DIR}/predictions_{TRAIN_METHOD}_{current_time}.csv", index=False)
+result.to_csv(f"{OUTPUT_DIR}/predictions_{VER_NAME}.csv", index=False)
