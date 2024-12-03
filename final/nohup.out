@@ -159,3 +159,188 @@ filling pitcher_SO_batters_faced_10RA
 filling pitcher_H_batters_faced_10RA
 filling pitcher_BB_batters_faced_10RA
 --- finished in 51.14 seconds ---
+python: can't open file '/nfs/undergrad/11/b11902038/Desktop/HTML/final/preprocess.py': [Errno 2] No such file or directory
+--- start fill NaN of X ---
+filling is_night_game
+filling pitcher
+filling rest
+filling team_errors_mean
+filling team_errors_std
+filling team_errors_skew
+filling team_spread_mean
+filling team_spread_std
+filling team_spread_skew
+filling team_wins_mean
+filling team_wins_std
+filling team_wins_skew
+filling batting_batting_avg_mean
+filling batting_batting_avg_std
+filling batting_batting_avg_skew
+filling batting_onbase_perc_mean
+filling batting_onbase_perc_std
+filling batting_onbase_perc_skew
+filling batting_onbase_plus_slugging_mean
+filling batting_onbase_plus_slugging_std
+filling batting_onbase_plus_slugging_skew
+filling batting_leverage_index_avg_mean
+filling batting_leverage_index_avg_std
+filling batting_leverage_index_avg_skew
+filling batting_wpa_bat_mean
+filling batting_wpa_bat_std
+filling batting_wpa_bat_skew
+filling batting_RBI_mean
+filling batting_RBI_std
+filling batting_RBI_skew
+filling pitching_earned_run_avg_mean
+filling pitching_earned_run_avg_std
+filling pitching_earned_run_avg_skew
+filling pitching_SO_batters_faced_mean
+filling pitching_SO_batters_faced_std
+filling pitching_SO_batters_faced_skew
+filling pitching_H_batters_faced_mean
+filling pitching_H_batters_faced_std
+filling pitching_H_batters_faced_skew
+filling pitching_BB_batters_faced_mean
+filling pitching_BB_batters_faced_std
+filling pitching_BB_batters_faced_skew
+filling pitching_leverage_index_avg_mean
+filling pitching_leverage_index_avg_std
+filling pitching_leverage_index_avg_skew
+filling pitching_wpa_def_mean
+filling pitching_wpa_def_std
+filling pitching_wpa_def_skew
+filling pitcher_earned_run_avg_mean
+filling pitcher_earned_run_avg_std
+filling pitcher_earned_run_avg_skew
+filling pitcher_SO_batters_faced_mean
+filling pitcher_SO_batters_faced_std
+filling pitcher_SO_batters_faced_skew
+filling pitcher_H_batters_faced_mean
+filling pitcher_H_batters_faced_std
+filling pitcher_H_batters_faced_skew
+filling pitcher_BB_batters_faced_mean
+filling pitcher_BB_batters_faced_std
+filling pitcher_BB_batters_faced_skew
+filling pitcher_leverage_index_avg_mean
+filling pitcher_leverage_index_avg_std
+filling pitcher_leverage_index_avg_skew
+filling pitcher_wpa_def_mean
+filling pitcher_wpa_def_std
+filling pitcher_wpa_def_skew
+filling batting_batting_avg_10RA
+filling batting_onbase_perc_10RA
+filling batting_onbase_plus_slugging_10RA
+filling batting_leverage_index_avg_10RA
+filling batting_RBI_10RA
+filling pitching_earned_run_avg_10RA
+filling pitching_SO_batters_faced_10RA
+filling pitching_H_batters_faced_10RA
+filling pitching_BB_batters_faced_10RA
+filling pitcher_earned_run_avg_10RA
+filling pitcher_SO_batters_faced_10RA
+filling pitcher_H_batters_faced_10RA
+filling pitcher_BB_batters_faced_10RA
+--- finished in 242.74 seconds ---
+
+
+--- ver.1204_0037 ---
+
+start preprocessing...
+X shape: (11067, 1983)
+X_test shape: (6185, 1983)
+
+preprocessing time 1.0696916580200195s
+start training...
+start testing...
+
+test time 0.31281399726867676s
+
+
+--- ver.1204_0039 ---
+
+start preprocessing...
+X shape: (11067, 1983)
+X_test shape: (6185, 1983)
+
+preprocessing time 0.9467854499816895s
+start training...
+
+training time 13.498603820800781s
+start testing...
+
+test time 0.23300719261169434s
+
+
+--- ver.1204_0051 ---
+
+start preprocessing...
+X shape: (11067, 1983)
+X_test shape: (6185, 1983)
+
+preprocessing time 1.1574516296386719s
+start training...
+Traceback (most recent call last):
+  File "/nfs/undergrad/11/b11902038/Desktop/HTML/final/train.py", line 103, in <module>
+    model = train(X, y)
+            ^^^^^^^^^^^
+  File "/nfs/undergrad/11/b11902038/Desktop/HTML/final/train.py", line 73, in train
+    weights = np.exp(-(2024 - X["season"]) / decay_factor)
+              ^^
+NameError: name 'np' is not defined
+
+
+--- ver.1204_0051 ---
+
+start preprocessing...
+X shape: (11067, 1983)
+X_test shape: (6185, 1983)
+
+preprocessing time 1.2524120807647705s
+start training...
+0        0.548812
+1        0.367879
+2        0.367879
+3        0.301194
+4        0.201897
+           ...   
+11062    0.201897
+11063    0.818731
+11064    0.670320
+11065    0.548812
+11066    0.818731
+Name: season, Length: 11067, dtype: float64
+
+training time 18.704209804534912s
+start testing...
+
+test time 0.3244321346282959s
+
+
+--- ver.1204_0100 ---
+
+start preprocessing...
+X shape: (11067, 1941)
+X_test shape: (2428, 1941)
+
+preprocessing time 1.0029006004333496s
+start training...
+
+training time 17.768577337265015s
+start testing...
+
+test time 0.13059043884277344s
+
+
+--- ver.1204_0102 ---
+
+start preprocessing...
+X shape: (11067, 1941)
+X_test shape: (2428, 1941)
+
+preprocessing time 0.8367996215820312s
+start training...
+
+training time 17.440244913101196s
+start testing...
+
+test time 0.12981677055358887s
