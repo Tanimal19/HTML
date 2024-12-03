@@ -1,178 +1,161 @@
-start preprocessing...
-still has null value, pad with ffill
-/nfs/undergrad/11/b11902038/Desktop/HTML/final/train.py:29: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-  cat_df = cat_df.ffill().bfill()
-still has null value, pad with ffill
-/nfs/undergrad/11/b11902038/Desktop/HTML/final/train.py:29: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
-  cat_df = cat_df.ffill().bfill()
-       home_team_rest  ...  home_pitcher_roberni01
-0           -0.287229  ...                     0.0
-1            1.581532  ...                     0.0
-2           -0.287229  ...                     0.0
-3           -0.287229  ...                     0.0
-4           -0.287229  ...                     0.0
-...               ...  ...                     ...
-11062       -0.287229  ...                     0.0
-11063       -0.287229  ...                     0.0
-11064       -0.287229  ...                     0.0
-11065       -0.287229  ...                     0.0
-11066       -0.287229  ...                     0.0
-
-[11067 rows x 2401 columns]
-0        1
-1        0
-2        1
-3        1
-4        0
-        ..
-11062    1
-11063    0
-11064    1
-11065    0
-11066    0
-Name: home_team_win, Length: 11067, dtype: int64
-      home_team_rest  ...  home_pitcher_roberni01
-0          -0.283930  ...                       0
-1          -0.283930  ...                       0
-2           1.826776  ...                       0
-3          -0.283930  ...                       0
-4          -0.283930  ...                       0
-...              ...  ...                     ...
-6180       -0.283930  ...                       0
-6181       -0.283930  ...                       0
-6182       -0.283930  ...                       0
-6183       -0.283930  ...                       0
-6184       -0.283930  ...                       0
-
-[6185 rows x 2401 columns]
-start training...
-
-training time 568.7661442756653s
-start testing...
-
-test time 484.38656425476074s
-
-
---- 1203_0035 ---
-
-start preprocessing...
-       is_night_game  ...  home_pitcher_hollade01
-0                  0  ...                     0.0
-1                  1  ...                     0.0
-2                  1  ...                     0.0
-3                  1  ...                     0.0
-4                  1  ...                     0.0
-...              ...  ...                     ...
-11062              1  ...                     0.0
-11063              0  ...                     0.0
-11064              1  ...                     0.0
-11065              1  ...                     0.0
-11066              1  ...                     0.0
-
-[11067 rows x 2405 columns]
-0        1
-1        0
-2        1
-3        1
-4        0
-        ..
-11062    1
-11063    0
-11064    1
-11065    0
-11066    0
-Name: home_team_win, Length: 11067, dtype: int64
-      is_night_game  ...  home_pitcher_hollade01
-0                 0  ...                       0
-1                 1  ...                       0
-2                 1  ...                       0
-3                 0  ...                       0
-4                 0  ...                       0
-...             ...  ...                     ...
-6180              1  ...                       0
-6181              0  ...                       0
-6182              1  ...                       0
-6183              0  ...                       0
-6184              1  ...                       0
-
-[6185 rows x 2405 columns]
-
-
---- ver.svc_rbf_1203_0037 ---
-
-start preprocessing...
-       is_night_game  ...  away_pitcher_bardlu01
-0                  0  ...                    0.0
-1                  1  ...                    0.0
-2                  1  ...                    0.0
-3                  1  ...                    0.0
-4                  1  ...                    0.0
-...              ...  ...                    ...
-11062              1  ...                    0.0
-11063              0  ...                    0.0
-11064              1  ...                    0.0
-11065              1  ...                    0.0
-11066              1  ...                    0.0
-
-[11067 rows x 2405 columns]
-0        1
-1        0
-2        1
-3        1
-4        0
-        ..
-11062    1
-11063    0
-11064    1
-11065    0
-11066    0
-Name: home_team_win, Length: 11067, dtype: int64
-      is_night_game  ...  away_pitcher_bardlu01
-0                 0  ...                      0
-1                 1  ...                      0
-2                 1  ...                      0
-3                 0  ...                      0
-4                 0  ...                      0
-...             ...  ...                    ...
-6180              1  ...                      0
-6181              0  ...                      0
-6182              1  ...                      0
-6183              0  ...                      0
-6184              1  ...                      0
-
-[6185 rows x 2405 columns]
-start training...
-
-training time 684.2048847675323s
-start testing...
-
-test time 625.8690252304077s
-
-
---- ver.svc_rbf_1203_0110 ---
-
-start preprocessing...
-
-preprocessing time 2.4009251594543457s
-start training...
-
-kernel: poly, gamma: scale, score: 0.55420054200542, time: 496.70129132270813s
-
-kernel: rbf, gamma: scale, score: 0.564137308039747, time: 647.3813827037811s
-
-kernel: rbf, gamma: 0.01, score: 0.5537488708220416, time: 658.1975040435791s
-
-kernel: rbf, gamma: 0.1, score: 0.5555555555555556, time: 869.6802246570587s
-
-kernel: linear, gamma: 0.01, score: 0.530713640469738, time: 895.7981886863708s
-
-kernel: linear, gamma: 0.1, score: 0.530713640469738, time: 896.9280104637146s
-
-kernel: linear, gamma: scale, score: 0.530713640469738, time: 898.0662996768951s
-
-kernel: poly, gamma: 0.01, score: 0.547877145438121, time: 911.2155723571777s
-
-kernel: poly, gamma: 0.1, score: 0.4986449864498645, time: 1367.3844697475433s
-start testing...
-
-test time 517.9164488315582s
+--- start fill NaN of X ---
+filling is_night_game
+filling pitcher
+filling team_errors_mean
+filling team_errors_std
+filling team_errors_skew
+filling team_spread_mean
+filling team_spread_std
+filling team_spread_skew
+filling team_wins_mean
+filling team_wins_std
+filling team_wins_skew
+filling batting_batting_avg_mean
+filling batting_batting_avg_std
+filling batting_batting_avg_skew
+filling batting_onbase_perc_mean
+filling batting_onbase_perc_std
+filling batting_onbase_perc_skew
+filling batting_onbase_plus_slugging_mean
+filling batting_onbase_plus_slugging_std
+filling batting_onbase_plus_slugging_skew
+filling batting_leverage_index_avg_mean
+filling batting_leverage_index_avg_std
+filling batting_leverage_index_avg_skew
+filling batting_wpa_bat_mean
+filling batting_wpa_bat_std
+filling batting_wpa_bat_skew
+filling batting_RBI_mean
+filling batting_RBI_std
+filling batting_RBI_skew
+filling pitching_earned_run_avg_mean
+filling pitching_earned_run_avg_std
+filling pitching_earned_run_avg_skew
+filling pitching_SO_batters_faced_mean
+filling pitching_SO_batters_faced_std
+filling pitching_SO_batters_faced_skew
+filling pitching_H_batters_faced_mean
+filling pitching_H_batters_faced_std
+filling pitching_H_batters_faced_skew
+filling pitching_BB_batters_faced_mean
+filling pitching_BB_batters_faced_std
+filling pitching_BB_batters_faced_skew
+filling pitching_leverage_index_avg_mean
+filling pitching_leverage_index_avg_std
+filling pitching_leverage_index_avg_skew
+filling pitching_wpa_def_mean
+filling pitching_wpa_def_std
+filling pitching_wpa_def_skew
+filling pitcher_earned_run_avg_mean
+filling pitcher_earned_run_avg_std
+filling pitcher_earned_run_avg_skew
+filling pitcher_SO_batters_faced_mean
+filling pitcher_SO_batters_faced_std
+filling pitcher_SO_batters_faced_skew
+filling pitcher_H_batters_faced_mean
+filling pitcher_H_batters_faced_std
+filling pitcher_H_batters_faced_skew
+filling pitcher_BB_batters_faced_mean
+filling pitcher_BB_batters_faced_std
+filling pitcher_BB_batters_faced_skew
+filling pitcher_leverage_index_avg_mean
+filling pitcher_leverage_index_avg_std
+filling pitcher_leverage_index_avg_skew
+filling pitcher_wpa_def_mean
+filling pitcher_wpa_def_std
+filling pitcher_wpa_def_skew
+filling batting_batting_avg_10RA
+filling batting_onbase_perc_10RA
+filling batting_onbase_plus_slugging_10RA
+filling batting_leverage_index_avg_10RA
+filling batting_RBI_10RA
+filling pitching_earned_run_avg_10RA
+filling pitching_SO_batters_faced_10RA
+filling pitching_H_batters_faced_10RA
+filling pitching_BB_batters_faced_10RA
+filling pitcher_earned_run_avg_10RA
+filling pitcher_SO_batters_faced_10RA
+filling pitcher_H_batters_faced_10RA
+filling pitcher_BB_batters_faced_10RA
+--- finished in 250.82 seconds ---
+--- start fill NaN of X_test ---
+filling is_night_game
+filling pitcher
+filling rest
+filling team_errors_mean
+filling team_errors_std
+filling team_errors_skew
+filling team_spread_mean
+filling team_spread_std
+filling team_spread_skew
+filling team_wins_mean
+filling team_wins_std
+filling team_wins_skew
+filling batting_batting_avg_mean
+filling batting_batting_avg_std
+filling batting_batting_avg_skew
+filling batting_onbase_perc_mean
+filling batting_onbase_perc_std
+filling batting_onbase_perc_skew
+filling batting_onbase_plus_slugging_mean
+filling batting_onbase_plus_slugging_std
+filling batting_onbase_plus_slugging_skew
+filling batting_leverage_index_avg_mean
+filling batting_leverage_index_avg_std
+filling batting_leverage_index_avg_skew
+filling batting_wpa_bat_mean
+filling batting_wpa_bat_std
+filling batting_wpa_bat_skew
+filling batting_RBI_mean
+filling batting_RBI_std
+filling batting_RBI_skew
+filling pitching_earned_run_avg_mean
+filling pitching_earned_run_avg_std
+filling pitching_earned_run_avg_skew
+filling pitching_SO_batters_faced_mean
+filling pitching_SO_batters_faced_std
+filling pitching_SO_batters_faced_skew
+filling pitching_H_batters_faced_mean
+filling pitching_H_batters_faced_std
+filling pitching_H_batters_faced_skew
+filling pitching_BB_batters_faced_mean
+filling pitching_BB_batters_faced_std
+filling pitching_BB_batters_faced_skew
+filling pitching_leverage_index_avg_mean
+filling pitching_leverage_index_avg_std
+filling pitching_leverage_index_avg_skew
+filling pitching_wpa_def_mean
+filling pitching_wpa_def_std
+filling pitching_wpa_def_skew
+filling pitcher_earned_run_avg_mean
+filling pitcher_earned_run_avg_std
+filling pitcher_earned_run_avg_skew
+filling pitcher_SO_batters_faced_mean
+filling pitcher_SO_batters_faced_std
+filling pitcher_SO_batters_faced_skew
+filling pitcher_H_batters_faced_mean
+filling pitcher_H_batters_faced_std
+filling pitcher_H_batters_faced_skew
+filling pitcher_BB_batters_faced_mean
+filling pitcher_BB_batters_faced_std
+filling pitcher_BB_batters_faced_skew
+filling pitcher_leverage_index_avg_mean
+filling pitcher_leverage_index_avg_std
+filling pitcher_leverage_index_avg_skew
+filling pitcher_wpa_def_mean
+filling pitcher_wpa_def_std
+filling pitcher_wpa_def_skew
+filling batting_batting_avg_10RA
+filling batting_onbase_perc_10RA
+filling batting_onbase_plus_slugging_10RA
+filling batting_leverage_index_avg_10RA
+filling batting_RBI_10RA
+filling pitching_earned_run_avg_10RA
+filling pitching_SO_batters_faced_10RA
+filling pitching_H_batters_faced_10RA
+filling pitching_BB_batters_faced_10RA
+filling pitcher_earned_run_avg_10RA
+filling pitcher_SO_batters_faced_10RA
+filling pitcher_H_batters_faced_10RA
+filling pitcher_BB_batters_faced_10RA
+--- finished in 51.14 seconds ---
