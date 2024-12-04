@@ -154,8 +154,15 @@ def FEATURE_FILL_NAN(df, feature_col, group_cols, strategy, size=1, values=None)
     print(f"[LOG] \t{feature_col} finished in {time.time() - start_time:.2f} seconds")
 
     if df[feature_col].isna().any():
-        print(f"[WARNING] \t{feature_col} still has NaN values")
+        print(f"[WARNING] \t{feature_col} still has NaN valuesm at:\n")
+        print(df[df[feature_col].isna()])
         
+        print(f"\tfill with mean of the whole data")
+        # fill NaN with mean of the whole data
+        mean = df[feature_col].mean()
+        df[feature_col] = df[feature_col].fillna(mean)
+
+
     return (feature_col, df[feature_col])
 
 
@@ -168,6 +175,7 @@ def FILL_X(input_filename):
     # fill season with date's year
     df["season"] = df["date"].map(lambda df: int(df.split("-")[0]))
     assert df["season"].isna().any() == False
+
 
     cpus = multiprocessing.cpu_count()
     pool = Pool(cpus)
@@ -214,12 +222,21 @@ def FILL_X_TEST(input_filename):
 
     df = pd.read_csv(f"{DATA_DIR}/{input_filename}.csv")
 
-    # fill season with random year range from min to max
+    # fill season with team's season, if still NaN fill with random
+    home_season = df['home_team_season'].apply(lambda x: str(x).split('_')[-1])
+    away_season = df['away_team_season'].apply(lambda x: str(x).split('_')[-1])
+    df["season"] = df["season"].fillna(home_season)
+    df["season"] = df["season"].fillna(away_season)
+    df["season"] = df["season"].replace("nan", np.nan)
+    df["season"] = df["season"].astype(float)
+
     min_season = df["season"].min()
     max_season = df["season"].max()
-    result = FEATURE_FILL_NAN(df, "season", None, "random", 1, list(range(int(min_season), int(max_season+1))))
+    result = FEATURE_FILL_NAN(df, "season", None, "random", 1, list(range(int(min_season), int(max_season) + 1)))
     df["season"] = result[1]
+
     assert df["season"].isna().any() == False
+
 
     cpus = multiprocessing.cpu_count()
     pool = Pool(cpus)
@@ -232,23 +249,23 @@ def FILL_X_TEST(input_filename):
     # don't use season cuz it's random
     # TEAM_pitcher
     for prefix in TEAM_PREFIX:
-        inputs.append((df, prefix + "pitcher", [prefix + "team_abbr"], "mode", 1, None))
+        inputs.append((df, prefix + "pitcher", [prefix + "team_abbr", "season"], "mode", 1, None))
 
     # TEAM_team_rest, TEAM_pitcher_rest
     for prefix in TEAM_PREFIX:
         for feature_name in ["team_rest", "pitcher_rest"]:
-            inputs.append((df, prefix + feature_name, [prefix + "team_abbr"], "mode", 1, None))
+            inputs.append((df, prefix + feature_name, [prefix + "team_abbr", "season"], "mode", 1, None))
 
     # TEAM_RECENT
     for prefix in TEAM_PREFIX:
         for feature_name in RECENT_FEATURES:
-            inputs.append((df, prefix + feature_name, [prefix + "team_abbr"], "mean", 1, None))
+            inputs.append((df, prefix + feature_name, [prefix + "team_abbr", "season"], "mean", 1, None))
 
     # TEAM_SEASONAL_STAT
     for prefix in TEAM_PREFIX:
         for feature_name in SEASONAL_FEATURES:
             for suffix in STAT_SUFFIX:
-                inputs.append((df, prefix + feature_name + suffix, [prefix + "team_abbr"], "mean", 1, None))
+                inputs.append((df, prefix + feature_name + suffix, [prefix + "team_abbr", "season"], "mean", 1, None))
 
 
     results = pool.starmap(FEATURE_FILL_NAN, inputs)
