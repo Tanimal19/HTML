@@ -57,284 +57,211 @@ SEASONAL_FEATURES = [
 ]
 
 
-# Main
-X = pd.read_csv(f"{DATA_DIR}/train_data.csv")
+def FEATURE_FILL_NAN(df, feature_col, group_cols, strategy, size=1, values=None):
+    """
+    fill NaN values in feature_col with strategy, return (feature_col, df[feature_col])
 
-FILLNA_X = False
-if FILLNA_X:
-    print("--- start fill NaN of X ---")
+    feature_col: column to fill NaN
+    group_cols: list of columns to group by, should not have NaN, if None, take the whole data as a group
+    strategy:
+        - "mean": fill with mean of group, only for numerical data
+        - "mode": fill with mode of group
+        - "nearest": fill with mean of nearest {size} value of the same group, by df["date"]
+        - "random": fill with randomly select from {values}, ingore group_cols
+    """
+
+    assert feature_col in df.columns
+
+    print(f"[LOG] \tfilling {feature_col} with {strategy}")
     start_time = time.time()
+
+    # Keep only feature_col and group_cols in the dataframe
+    keep = [feature_col] + (group_cols if group_cols is not None else [])
+    if "date" in df.columns:
+        keep.append("date")
+    df = df[keep]
+
+
+    if (strategy == "random"):
+        assert values is not None
+
+        np.random.seed(RANDOM_STATE)
+        df[feature_col] = df[feature_col].map(lambda v: v if pd.notnull(v) else np.random.choice(values))
+        
+    else:
+        # change group_cols to string to avoid error when query
+        if group_cols is not None:
+            original_dtype = df[group_cols].dtypes
+            df[group_cols] = df[group_cols].astype(str)
+        else:
+            print("[WARNING] \tgroup_cols is None, take the whole data as a group")
+
+
+        nan_df = df[df[feature_col].isna()]
+
+        if (strategy == "mean"):
+            if group_cols is None:
+                mean = df[feature_col].mean()
+                df[feature_col] = df[feature_col].fillna(mean)
+            else:
+                mean_df = df.groupby(group_cols)[feature_col].mean().reset_index()
+                for row in nan_df.iterrows():
+                    query = " & ".join([f"{col} == \"{value}\"" for col, value in zip(group_cols, row[1][group_cols])])
+                    mean = mean_df.query(query)[feature_col].values[0]
+                    df.loc[row[0], feature_col] = mean
+
+        elif (strategy == "mode"):
+            if group_cols is None:
+                mode = df[feature_col].mode().values[0]
+                df[feature_col] = df[feature_col].fillna(mode)
+            else:
+                mode_df = df.groupby(group_cols)[feature_col].agg(lambda v: v.mode().iloc[0]).reset_index()
+                for row in nan_df.iterrows():
+                    query = " & ".join([f"{col} == \"{value}\"" for col, value in zip(group_cols, row[1][group_cols])])
+                    mode = mode_df.query(query)[feature_col].values[0]
+                    df.loc[row[0], feature_col] = mode
+
+        elif (strategy == "nearest"):
+            assert "date" in df.columns
+
+            for row in nan_df.iterrows():
+                if group_cols is not None:
+                    group_query = " & ".join([f"{col} == \"{value}\"" for col, value in zip(group_cols, row[1][group_cols])])
+                    before_query = f"date < \"{row[1]['date']}\" & {group_query}"
+                    after_query = f"date > \"{row[1]['date']}\" & {group_query}"
+                else:
+                    before_query = f"date < \"{row[1]['date']}\""
+                    after_query = f"date > \"{row[1]['date']}\""
+
+                before_rows = df.query(before_query).sort_values(by=["date"], ascending=False).dropna()
+                if len(before_rows) > size:
+                    before_rows = before_rows[:size]
+                
+                after_rows = df.query(after_query).sort_values(by=["date"]).dropna()
+                if len(after_rows) > size:
+                    after_rows = after_rows[:size]
+
+                nearest_rows = pd.concat([before_rows, after_rows], ignore_index=True)
+                nearest = nearest_rows[feature_col].mean()
+                df.loc[row[0], feature_col] = nearest
+
+
+        # restore original dtype of group_cols
+        if group_cols is not None:
+            df[group_cols] = df[group_cols].astype(original_dtype)
+
+
+    print(f"[LOG] \t{feature_col} finished in {time.time() - start_time:.2f} seconds")
+
+    if df[feature_col].isna().any():
+        print(f"[WARNING] \t{feature_col} still has NaN values")
+        
+    return (feature_col, df[feature_col])
+
+
+def FILL_X(input_filename):
+    print(f"[LOG] \tstart fill NaN of {input_filename}")
+    start_time = time.time()
+
+    df = pd.read_csv(f"{DATA_DIR}/{input_filename}.csv")
 
     # fill season with date's year
-    X["season"] = X["date"].map(lambda x: int(x.split("-")[0]))
-    assert X["season"].isna().any() == False
+    df["season"] = df["date"].map(lambda df: int(df.split("-")[0]))
+    assert df["season"].isna().any() == False
 
+    cpus = multiprocessing.cpu_count()
+    pool = Pool(cpus)
 
-    # For is_night_game
-    # change to 0 and 1
-    # fill NaN with random 0 or 1
-    FILLNA_IS_NIGHT_GAME = True
-    if FILLNA_IS_NIGHT_GAME:
-        print("filling is_night_game")
+    inputs = []
 
-        np.random.seed(RANDOM_STATE)
-        is_night_game = X["is_night_game"].map({True: 1, False: 0})
-        is_night_game = is_night_game.map(lambda X: X if pd.notnull(X) else np.random.choice([0, 1]))
-        X["is_night_game"] = is_night_game
+    # is_night_game
+    inputs.append((df, "is_night_game", None, "random", 1, ["False", "True"]))
 
-        assert X["is_night_game"].isna().any() == False
+    # TEAM_pitcher
+    for prefix in TEAM_PREFIX:
+        inputs.append((df, prefix + "pitcher", [prefix + "team_abbr", "season"], "mode", 1, None))
 
+    # TEAM_team_rest, TEAM_pitcher_rest
+    for prefix in TEAM_PREFIX:
+        for feature_name in ["team_rest", "pitcher_rest"]:
+            inputs.append((df, prefix + feature_name, [prefix + "team_abbr"], "mode", 1, None))
 
-    # For home_pitcher, away_pitcher
-    # fill NaN with the most common pitcher in each team & season
-    FILLNA_PITCHER = True
-    if FILLNA_PITCHER:
-        print("filling pitcher")
+    # TEAM_RECENT
+    for prefix in TEAM_PREFIX:
+        for feature_name in RECENT_FEATURES:
+            inputs.append((df, prefix + feature_name, [prefix + "team_abbr"], "nearest", 3, None))
 
-        season_col = X["season"]
-        double_season_col = pd.concat([season_col, season_col], ignore_index=True)
-        team_col = pd.concat([X["home_team_abbr"], X["away_team_abbr"]], ignore_index=True)
-        pitcher = pd.concat([X["home_pitcher"], X["away_pitcher"]], ignore_index=True)
-        pitcher = pitcher.fillna("unknown")
-        team_pitcher = pd.concat([double_season_col, team_col, pitcher], axis=1)
-        team_pitcher.columns = ["season", "team", "pitcher"]
-
-        team_pitcher_counts = team_pitcher.value_counts().reset_index(name='count')
-        team_pitcher_counts = team_pitcher_counts.sort_values(by=['team', 'season', 'pitcher'])
-        # team_pitcher_counts.to_csv(f"{OUTPUT_DIR}/team_pitcher_counts.csv", index=False)
-
-        most_common_pitcher = team_pitcher_counts.loc[team_pitcher_counts.groupby(['team', 'season'])['count'].idxmax()]
-        # most_common_pitcher.to_csv(f"{OUTPUT_DIR}/most_common_pitcher.csv", index=False)
-
-        unknown_pitcher = team_pitcher[team_pitcher["pitcher"] == "unknown"]
-        for row in unknown_pitcher.iterrows():
-            season, team = row[1]["season"], row[1]["team"]
-            most_common = most_common_pitcher[(most_common_pitcher["team"] == team) & (most_common_pitcher["season"] == season)]["pitcher"].values[0]
-            team_pitcher.loc[row[0], "pitcher"] = most_common
-
-        X["home_pitcher"] = team_pitcher.iloc[:len(X)]["pitcher"].values
-        X["away_pitcher"] = team_pitcher.iloc[len(X):]["pitcher"].values
-
-        assert X["home_pitcher"].isna().any() == False
-        assert X["away_pitcher"].isna().any() == False
-
-
-    # For team_rest, pitcher_rest
-    # fill NaN with most common value among all data
-    FILLNA_REST = True
-    if FILLNA_REST:
-        print("filling rest")
-
-        rest_cols = X.columns[X.columns.str.contains("_rest")]
-        for col in rest_cols:
-            most_common = X[col].mode().values[0]
-            X[col] = X[col].fillna(most_common)
-
-        assert X[rest_cols].isna().any().any() == False
-
-
-    # For seasonal features
-    # fill NaN with mean of team & season
-    FILLNA_SEASON = True    
-    if FILLNA_SEASON:
-        season_col = X["season"]
-        double_season_col = pd.concat([season_col, season_col], ignore_index=True)
-        team_col = pd.concat([X["home_team_abbr"], X["away_team_abbr"]], ignore_index=True)
-
-        for column_name in SEASONAL_FEATURES:
+    # TEAM_SEASONAL_STAT
+    for prefix in TEAM_PREFIX:
+        for feature_name in SEASONAL_FEATURES:
             for suffix in STAT_SUFFIX:
-                print(f"filling {column_name + suffix}")
+                inputs.append((df, prefix + feature_name + suffix, [prefix + "team_abbr", "season"], "mean", 1, None))
 
-                home_stats_name = TEAM_PREFIX[0] + column_name + suffix
-                away_stats_name = TEAM_PREFIX[1] + column_name + suffix
+    results = pool.starmap(FEATURE_FILL_NAN, inputs)
+    pool.close()
 
-                stats_col = pd.concat([X[home_stats_name], X[away_stats_name]], ignore_index=True)
-                team_stats = pd.concat([double_season_col, team_col, stats_col], axis=1)
-                team_stats.columns = ["season", "team", "stats"]
+    for (feature_col, feature_value) in results:
+        df[feature_col] = feature_value
 
-                team_stats_mean = team_stats.groupby(['team', 'season']).mean().reset_index()
+    df.to_csv(f"{DATA_DIR}/{input_filename}_N.csv", index=False)
 
-                nan_team_stats = team_stats[team_stats["stats"].isna()]
-                for row in nan_team_stats.iterrows():
-                    season, team = row[1]["season"], row[1]["team"]
-                    mean = team_stats_mean[(team_stats_mean["team"] == team) & (team_stats_mean["season"] == season)]["stats"].values[0]
-                    team_stats.loc[row[0], "stats"] = mean
-
-                X[home_stats_name] = team_stats.iloc[:len(X)]["stats"].values
-                X[away_stats_name] = team_stats.iloc[len(X):]["stats"].values
-
-                assert X[home_stats_name].isna().any() == False
-                assert X[away_stats_name].isna().any() == False
+    print(f"[LOG] \tall finished in {time.time() - start_time:.2f} seconds")
 
 
-    # For recent features
-    # fill NAN with nearest (by date) valid value of the same team
-    FILLNA_RECENT = True
-    if FILLNA_RECENT:
-        date_col = X["date"]
-        double_date_col = pd.concat([date_col, date_col], ignore_index=True)
-        team_col = pd.concat([X["home_team_abbr"], X["away_team_abbr"]], ignore_index=True)
-
-        for column_name in RECENT_FEATURES:
-            print(f"filling {column_name}")
-
-            home_stats_name = TEAM_PREFIX[0] + column_name
-            away_stats_name = TEAM_PREFIX[1] + column_name
-
-            stats_col = pd.concat([X[home_stats_name], X[away_stats_name]], ignore_index=True)
-            team_stats = pd.concat([double_date_col, team_col, stats_col], axis=1)
-            team_stats.columns = ["date", "team", "stats"]
-            team_stats = team_stats.sort_values(by=["date", "team"])
-
-            nan_team_stats = team_stats[team_stats["stats"].isna()]
-
-            for row in nan_team_stats.iterrows():
-                date, team = row[1]["date"], row[1]["team"]
-
-                # if no any data before the date, find the nearest data after
-                before_rows = team_stats[(team_stats["team"] == team) & (team_stats["date"] < date)].dropna()
-                if before_rows.empty:
-                    after_rows = team_stats[(team_stats["team"] == team) & (team_stats["date"] > date)].dropna()
-                    nearest = after_rows.iloc[:1]["stats"].values[0]
-                else:
-                    nearest = before_rows.iloc[-1:]["stats"].values[0]
-
-                team_stats.loc[row[0], "stats"] = nearest
-
-            team_stats = team_stats.sort_index()
-
-            X[home_stats_name] = team_stats.iloc[:len(X)]["stats"].values
-            X[away_stats_name] = team_stats.iloc[len(X):]["stats"].values
-
-            assert X[home_stats_name].isna().any() == False
-            assert X[away_stats_name].isna().any() == False
-
-
-    # home_team_season, away_team_season may have NaN values
-    X.to_csv(f"{DATA_DIR}/train_data_nonan.csv", index=False)
-
-    print(f"--- finished in {time.time() - start_time:.2f} seconds ---")
-
-
-X_test = pd.read_csv(f"{DATA_DIR}/2024_test_data.csv")
-
-FILLNA_X_TEST = True
-if FILLNA_X_TEST:
-    print("--- start fill NaN of X_test ---")
+def FILL_X_TEST(input_filename):
+    print(f"[LOG] \tstart fill NaN of {input_filename}")
     start_time = time.time()
 
+    df = pd.read_csv(f"{DATA_DIR}/{input_filename}.csv")
+
     # fill season with random year range from min to max
-    min_season = X_test["season"].min()
-    max_season = X_test["season"].max()
-    np.random.seed(RANDOM_STATE)
-    X_test["season"] = X_test["season"].map(lambda x: np.random.randint(min_season, max_season+1))
-    assert X_test["season"].isna().any() == False
+    min_season = df["season"].min()
+    max_season = df["season"].max()
+    result = FEATURE_FILL_NAN(df, "season", None, "random", 1, list(range(int(min_season), int(max_season+1))))
+    df["season"] = result[1]
+    assert df["season"].isna().any() == False
 
+    cpus = multiprocessing.cpu_count()
+    pool = Pool(cpus)
 
-    # For is_night_game
-    # change to 0 and 1
-    # fill NaN with random 0 or 1
-    FILLNA_IS_NIGHT_GAME = True
-    if FILLNA_IS_NIGHT_GAME:
-        print("filling is_night_game")
+    inputs = []
 
-        np.random.seed(RANDOM_STATE)
-        is_night_game = X_test["is_night_game"].map({True: 1, False: 0})
-        is_night_game = is_night_game.map(lambda X_test: X_test if pd.notnull(X_test) else np.random.choice([0, 1]))
-        X_test["is_night_game"] = is_night_game
+    # is_night_game
+    inputs.append((df, "is_night_game", None, "random", 1, ["False", "True"]))
 
-        assert X_test["is_night_game"].isna().any() == False
+    # don't use season cuz it's random
+    # TEAM_pitcher
+    for prefix in TEAM_PREFIX:
+        inputs.append((df, prefix + "pitcher", [prefix + "team_abbr"], "mode", 1, None))
 
+    # TEAM_team_rest, TEAM_pitcher_rest
+    for prefix in TEAM_PREFIX:
+        for feature_name in ["team_rest", "pitcher_rest"]:
+            inputs.append((df, prefix + feature_name, [prefix + "team_abbr"], "mode", 1, None))
 
-    # For home_pitcher, away_pitcher
-    # fill NaN with the most common pitcher in each team & season
-    FILLNA_PITCHER = True
-    if FILLNA_PITCHER:
-        print("filling pitcher")
+    # TEAM_RECENT
+    for prefix in TEAM_PREFIX:
+        for feature_name in RECENT_FEATURES:
+            inputs.append((df, prefix + feature_name, [prefix + "team_abbr"], "mean", 1, None))
 
-        season_col = X_test["season"]
-        double_season_col = pd.concat([season_col, season_col], ignore_index=True)
-        team_col = pd.concat([X_test["home_team_abbr"], X_test["away_team_abbr"]], ignore_index=True)
-        pitcher = pd.concat([X_test["home_pitcher"], X_test["away_pitcher"]], ignore_index=True)
-        pitcher = pitcher.fillna("unknown")
-        team_pitcher = pd.concat([double_season_col, team_col, pitcher], axis=1)
-        team_pitcher.columns = ["season", "team", "pitcher"]
-
-        team_pitcher_counts = team_pitcher.value_counts().reset_index(name='count')
-        team_pitcher_counts = team_pitcher_counts.sort_values(by=['team', 'season', 'pitcher'])
-        # team_pitcher_counts.to_csv(f"{OUTPUT_DIR}/team_pitcher_counts.csv", index=False)
-
-        most_common_pitcher = team_pitcher_counts.loc[team_pitcher_counts.groupby(['team', 'season'])['count'].idxmax()]
-        # most_common_pitcher.to_csv(f"{OUTPUT_DIR}/most_common_pitcher.csv", index=False)
-
-        unknown_pitcher = team_pitcher[team_pitcher["pitcher"] == "unknown"]
-        for row in unknown_pitcher.iterrows():
-            season, team = row[1]["season"], row[1]["team"]
-            most_common = most_common_pitcher[(most_common_pitcher["team"] == team) & (most_common_pitcher["season"] == season)]["pitcher"].values[0]
-            team_pitcher.loc[row[0], "pitcher"] = most_common
-
-        X_test["home_pitcher"] = team_pitcher.iloc[:len(X_test)]["pitcher"].values
-        X_test["away_pitcher"] = team_pitcher.iloc[len(X_test):]["pitcher"].values
-
-        assert X_test["home_pitcher"].isna().any() == False
-        assert X_test["away_pitcher"].isna().any() == False
-
-
-    # For team_rest, pitcher_rest
-    # fill NaN with most common value among all data
-    FILLNA_REST = True
-    if FILLNA_REST:
-        print("filling rest")
-
-        rest_cols = X_test.columns[X_test.columns.str.contains("_rest")]
-        for col in rest_cols:
-            most_common = X_test[col].mode().values[0]
-            X_test[col] = X_test[col].fillna(most_common)
-
-        assert X_test[rest_cols].isna().any().any() == False
-
-
-    # For seasonal & recent features
-    # fill NaN with mean of team & season
-    FILLNA_SEASON_RECENT = True    
-    if FILLNA_SEASON_RECENT:
-        season_col = X_test["season"]
-        double_season_col = pd.concat([season_col, season_col], ignore_index=True)
-        team_col = pd.concat([X_test["home_team_abbr"], X_test["away_team_abbr"]], ignore_index=True)
-
-        column_names = []
-        for name in SEASONAL_FEATURES:
+    # TEAM_SEASONAL_STAT
+    for prefix in TEAM_PREFIX:
+        for feature_name in SEASONAL_FEATURES:
             for suffix in STAT_SUFFIX:
-                column_names.append(name + suffix)
-        for name in RECENT_FEATURES:
-            column_names.append(name)
-        
-        for column_name in column_names:
-            print(f"filling {column_name}")
-
-            home_stats_name = TEAM_PREFIX[0] + column_name
-            away_stats_name = TEAM_PREFIX[1] + column_name
-
-            stats_col = pd.concat([X_test[home_stats_name], X_test[away_stats_name]], ignore_index=True)
-            team_stats = pd.concat([double_season_col, team_col, stats_col], axis=1)
-            team_stats.columns = ["season", "team", "stats"]
-
-            team_stats_mean = team_stats.groupby(['team', 'season']).mean().reset_index()
-
-            nan_team_stats = team_stats[team_stats["stats"].isna()]
-            for row in nan_team_stats.iterrows():
-                season, team = row[1]["season"], row[1]["team"]
-                mean = team_stats_mean[(team_stats_mean["team"] == team) & (team_stats_mean["season"] == season)]["stats"].values[0]
-                team_stats.loc[row[0], "stats"] = mean
-
-            X_test[home_stats_name] = team_stats.iloc[:len(X_test)]["stats"].values
-            X_test[away_stats_name] = team_stats.iloc[len(X_test):]["stats"].values
-
-            assert X_test[home_stats_name].isna().any() == False
-            assert X_test[away_stats_name].isna().any() == False
+                inputs.append((df, prefix + feature_name + suffix, [prefix + "team_abbr"], "mean", 1, None))
 
 
-    # home_team_season, away_team_season may have NaN values
-    X_test.to_csv(f"{DATA_DIR}/2024_test_data_nonan.csv", index=False)
+    results = pool.starmap(FEATURE_FILL_NAN, inputs)
+    pool.close()
 
-    print(f"--- finished in {time.time() - start_time:.2f} seconds ---")
+    for (feature_col, feature_value) in results:
+        df[feature_col] = feature_value
+
+    df.to_csv(f"{DATA_DIR}/{input_filename}_N.csv", index=False)
+
+    print(f"[LOG] \tall finished in {time.time() - start_time:.2f} seconds")
+
+
+FILL_X("train_data")
+FILL_X_TEST("same_season_test_data")
+FILL_X_TEST("2024_test_data")
