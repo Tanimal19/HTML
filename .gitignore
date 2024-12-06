@@ -1,6 +1,6 @@
 .conda/
 .venv/
-data/
+./data/
 
 # file too large
 **/mnist.scale.txt*
