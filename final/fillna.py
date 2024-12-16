@@ -9,8 +9,8 @@ pd.options.mode.chained_assignment = None
 # preprocessing options
 RANDOM_STATE = None
 
-DATA_DIR = "_data"
-OUTPUT_DIR = "output/preprocess"
+DATA_DIR = "raw data"
+OUTPUT_DIR = "preprocess data/nonan data"
 
 
 TEAM_PREFIX = ["home_", "away_"]
@@ -170,7 +170,8 @@ def FILL_X(input_filename):
     print(f"[LOG] \tstart fill NaN of {input_filename}")
     start_time = time.time()
 
-    df = pd.read_csv(f"{DATA_DIR}/{input_filename}.csv")
+    df_dirty = pd.read_csv(f"{DATA_DIR}/{input_filename}.csv")
+    df = df_dirty.dropna(thresh = 20)
 
     # fill season with date's year
     df["season"] = df["date"].map(lambda df: int(df.split("-")[0]))
@@ -211,7 +212,7 @@ def FILL_X(input_filename):
     for (feature_col, feature_value) in results:
         df[feature_col] = feature_value
 
-    df.to_csv(f"{DATA_DIR}/{input_filename}_N.csv", index=False)
+    df.to_csv(f"{DATA_DIR}/{input_filename}_nonan.csv", index=False)
 
     print(f"[LOG] \tall finished in {time.time() - start_time:.2f} seconds")
 
@@ -220,7 +221,8 @@ def FILL_X_TEST(input_filename):
     print(f"[LOG] \tstart fill NaN of {input_filename}")
     start_time = time.time()
 
-    df = pd.read_csv(f"{DATA_DIR}/{input_filename}.csv")
+    df_dirty = pd.read_csv(f"{DATA_DIR}/{input_filename}.csv")
+    df = df_dirty.dropna(thresh = 20)
 
     # fill season with team's season, if still NaN fill with random
     home_season = df['home_team_season'].apply(lambda x: str(x).split('_')[-1])
@@ -274,7 +276,7 @@ def FILL_X_TEST(input_filename):
     for (feature_col, feature_value) in results:
         df[feature_col] = feature_value
 
-    df.to_csv(f"{DATA_DIR}/{input_filename}_N.csv", index=False)
+    df.to_csv(f"{DATA_DIR}/{input_filename}_nonan.csv", index=False)
 
     print(f"[LOG] \tall finished in {time.time() - start_time:.2f} seconds")
 

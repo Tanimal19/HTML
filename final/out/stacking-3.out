@@ -1,0 +1,35 @@
+nohup: 忽略輸入
+X:  (10964, 142)
+y:  (10964,)
+X_test:  (6185, 142)
+
+--- 1211_0942 ---
+
+[I 2024-12-11 09:42:53,700] A new study created in memory with name: no-name-97f3041b-4ad8-452c-9ea1-38a432042566
+start trial: 0start trial: 1
+
+start trial: 2
+start trial: 3
+start trial: 4
+start trial: 5start trial: 6
+start trial: 7
+
+start trial: 8
+start trial: 9
+[I 2024-12-11 10:25:48,354] Trial 8 finished with value: 0.538495850916197 and parameters: {'max_depth': 18, 'n_estimators': 352, 'learning_rate': 0.2920294327624951, 'C': 0.14844373337691003, 'meta_C': 0.4241250079422171}. Best is trial 8 with value: 0.538495850916197.
+[I 2024-12-11 10:28:40,770] Trial 0 finished with value: 0.5415758022034043 and parameters: {'max_depth': 19, 'n_estimators': 467, 'learning_rate': 0.2667136030575244, 'C': 0.22748806126155627, 'meta_C': 1.4569797440590253}. Best is trial 0 with value: 0.5415758022034043.
+[I 2024-12-11 10:36:57,063] Trial 5 finished with value: 0.5420997479396188 and parameters: {'max_depth': 17, 'n_estimators': 315, 'learning_rate': 0.20959990013931135, 'C': 1.002879944404743, 'meta_C': 0.3058987048923436}. Best is trial 5 with value: 0.5420997479396188.
+[I 2024-12-11 10:39:48,602] Trial 9 finished with value: 0.5479764366025659 and parameters: {'max_depth': 17, 'n_estimators': 296, 'learning_rate': 0.1794864256565259, 'C': 2.534718635964985, 'meta_C': 6.242520970573536}. Best is trial 9 with value: 0.5479764366025659.
+[I 2024-12-11 10:44:11,498] Trial 4 finished with value: 0.5504970404146252 and parameters: {'max_depth': 18, 'n_estimators': 445, 'learning_rate': 0.1659132924379763, 'C': 0.5634518469759248, 'meta_C': 1.001874247245046}. Best is trial 4 with value: 0.5504970404146252.
+[I 2024-12-11 10:49:33,485] Trial 7 finished with value: 0.5474878926052847 and parameters: {'max_depth': 12, 'n_estimators': 470, 'learning_rate': 0.25897098315759925, 'C': 0.21696517200293386, 'meta_C': 7.7899789152590815}. Best is trial 4 with value: 0.5504970404146252.
+[I 2024-12-11 10:59:00,810] Trial 3 finished with value: 0.5476861423433119 and parameters: {'max_depth': 12, 'n_estimators': 326, 'learning_rate': 0.20007151982133414, 'C': 0.2092644234920105, 'meta_C': 0.7490590924318249}. Best is trial 4 with value: 0.5504970404146252.
+[I 2024-12-11 11:21:54,701] Trial 1 finished with value: 0.538743663088731 and parameters: {'max_depth': 14, 'n_estimators': 348, 'learning_rate': 0.0991229484991296, 'C': 3.917429532392888, 'meta_C': 0.16779937619901647}. Best is trial 4 with value: 0.5504970404146252.
+[I 2024-12-11 11:36:09,254] Trial 6 finished with value: 0.5383400832648899 and parameters: {'max_depth': 20, 'n_estimators': 308, 'learning_rate': 0.027356459403011284, 'C': 0.11285966684596471, 'meta_C': 3.0216134964912}. Best is trial 4 with value: 0.5504970404146252.
+[I 2024-12-11 11:41:51,790] Trial 2 finished with value: 0.5438415134951429 and parameters: {'max_depth': 16, 'n_estimators': 348, 'learning_rate': 0.06561446548680766, 'C': 0.1489210953774481, 'meta_C': 2.1229983623933335}. Best is trial 4 with value: 0.5504970404146252.
+best parameters: {'max_depth': 18, 'n_estimators': 445, 'learning_rate': 0.1659132924379763, 'C': 0.5634518469759248, 'meta_C': 1.001874247245046}
+best AUC: 0.5504970404146252
+
+start training
+prediction:
+[1 0 1 ... 1 1 0]
+execution time: 9704.20 sec

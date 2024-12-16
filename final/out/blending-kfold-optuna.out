@@ -1,0 +1,808 @@
+nohup: 忽略輸入
+
+--- 1209_1713 ---
+
+       home_pitcher_wpa_def_mean  ...  home_better_team_rest
+0                       0.236048  ...                      1
+1                      -0.652088  ...                      1
+2                       0.606709  ...                      1
+3                      -0.012947  ...                      1
+4                      -0.288251  ...                      1
+...                          ...  ...                    ...
+10959                  -0.837050  ...                      1
+10960                  -2.098482  ...                      1
+10961                  -0.804340  ...                      0
+10962                   0.075470  ...                      1
+10963                  -0.082201  ...                      1
+
+[10964 rows x 314 columns]
+[1 0 1 ... 1 0 0]
+      home_pitcher_wpa_def_mean  ...  home_better_team_rest
+0                     -0.025950  ...                      1
+1                     -0.717005  ...                      1
+2                      0.013064  ...                      0
+3                     -0.004442  ...                      1
+4                     -0.116248  ...                      1
+...                         ...  ...                    ...
+6180                   0.337976  ...                      1
+6181                  -0.255363  ...                      1
+6182                   0.231787  ...                      1
+6183                   1.863002  ...                      1
+6184                  -0.258121  ...                      1
+
+[6185 rows x 314 columns]
+[etc]	Optimizing etc...
+[dtc]	Optimizing dtc...
+[rf]	Optimizing rf...[I 2024-12-09 17:13:53,469] A new study created in memory with name: no-name-ba52bb19-6ef1-4210-9128-138b50676603
+
+[I 2024-12-09 17:13:53,469] A new study created in memory with name: no-name-78520ab0-3b2b-49bc-a542-78dbe6095226
+[I 2024-12-09 17:13:53,474] A new study created in memory with name: no-name-3cc987a0-ba97-44a0-940a-822fea5cad24
+[etc]	training fold 1
+[dtc]	training fold 1
+[rf]	training fold 1
+[dtc]	fold 1 took 5.92 seconds
+[dtc]	training fold 2
+[etc]	fold 1 took 10.48 seconds
+[etc]	training fold 2
+[dtc]	fold 2 took 4.99 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 4.75 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 5.29 seconds
+[dtc]	training fold 5
+[etc]	fold 2 took 10.71 seconds
+[etc]	training fold 3
+[dtc]	fold 5 took 5.25 seconds
+[dtc]	AUC: 0.5201993043727831
+[I 2024-12-09 17:14:19,696] Trial 0 finished with value: 0.5201993043727831 and parameters: {'max_depth': 20, 'min_samples_split': 5}. Best is trial 0 with value: 0.5201993043727831.
+[dtc]	training fold 1
+[dtc]	fold 1 took 1.89 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.83 seconds
+[dtc]	training fold 3
+[etc]	fold 3 took 10.65 seconds
+[etc]	training fold 4
+[dtc]	fold 3 took 2.01 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.85 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 1.81 seconds
+[dtc]	AUC: 0.5451401262208917
+[I 2024-12-09 17:14:29,082] Trial 1 finished with value: 0.5451401262208917 and parameters: {'max_depth': 5, 'min_samples_split': 10}. Best is trial 1 with value: 0.5451401262208917.
+[dtc]	training fold 1
+[dtc]	fold 1 took 1.12 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.13 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 1.16 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.17 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 1.12 seconds
+[dtc]	AUC: 0.556459417536802
+[I 2024-12-09 17:14:34,787] Trial 2 finished with value: 0.556459417536802 and parameters: {'max_depth': 3, 'min_samples_split': 4}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[etc]	fold 4 took 11.37 seconds
+[etc]	training fold 5
+[dtc]	fold 1 took 4.54 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 5.56 seconds
+[dtc]	training fold 3
+[rf]	fold 1 took 53.41 seconds
+[rf]	training fold 2
+[etc]	fold 5 took 11.53 seconds
+[etc]	AUC: 0.5668775247418522
+[I 2024-12-09 17:14:48,234] Trial 0 finished with value: 0.5668775247418522 and parameters: {'n_estimators': 333, 'max_depth': 15, 'min_samples_split': 9}. Best is trial 0 with value: 0.5668775247418522.
+[etc]	training fold 1
+[dtc]	fold 3 took 5.36 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 4.80 seconds
+[dtc]	training fold 5
+[etc]	fold 1 took 8.16 seconds
+[etc]	training fold 2
+[dtc]	fold 5 took 5.15 seconds
+[dtc]	AUC: 0.5057404076678531
+[I 2024-12-09 17:15:00,209] Trial 3 finished with value: 0.5057404076678531 and parameters: {'max_depth': 16, 'min_samples_split': 3}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[dtc]	fold 1 took 4.65 seconds
+[dtc]	training fold 2
+[etc]	fold 2 took 8.54 seconds
+[etc]	training fold 3
+[dtc]	fold 2 took 4.65 seconds
+[dtc]	training fold 3
+[etc]	fold 3 took 6.91 seconds
+[etc]	training fold 4
+[dtc]	fold 3 took 3.85 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 3.87 seconds
+[dtc]	training fold 5
+[etc]	fold 4 took 7.14 seconds
+[etc]	training fold 5
+[dtc]	fold 5 took 3.92 seconds
+[dtc]	AUC: 0.5136901753177803
+[I 2024-12-09 17:15:21,158] Trial 4 finished with value: 0.5136901753177803 and parameters: {'max_depth': 12, 'min_samples_split': 5}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[dtc]	fold 1 took 4.45 seconds
+[dtc]	training fold 2
+[etc]	fold 5 took 7.12 seconds
+[etc]	AUC: 0.5628292193895363
+[I 2024-12-09 17:15:26,116] Trial 1 finished with value: 0.5628292193895363 and parameters: {'n_estimators': 209, 'max_depth': 19, 'min_samples_split': 9}. Best is trial 0 with value: 0.5668775247418522.
+[etc]	training fold 1
+[dtc]	fold 2 took 4.34 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 4.78 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 4.44 seconds
+[dtc]	training fold 5
+[etc]	fold 1 took 13.41 seconds
+[etc]	training fold 2
+[rf]	fold 2 took 53.47 seconds
+[rf]	training fold 3
+[dtc]	fold 5 took 4.34 seconds
+[dtc]	AUC: 0.5073292087671316
+[I 2024-12-09 17:15:43,506] Trial 5 finished with value: 0.5073292087671316 and parameters: {'max_depth': 15, 'min_samples_split': 5}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[dtc]	fold 1 took 1.79 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.81 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 1.78 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.94 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 2.15 seconds
+[dtc]	AUC: 0.550181075257266
+[I 2024-12-09 17:15:52,988] Trial 6 finished with value: 0.550181075257266 and parameters: {'max_depth': 5, 'min_samples_split': 4}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[etc]	fold 2 took 13.77 seconds
+[etc]	training fold 3
+[dtc]	fold 1 took 1.83 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.68 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 1.68 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.71 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 1.56 seconds
+[dtc]	AUC: 0.5481272099111445
+[I 2024-12-09 17:16:01,463] Trial 7 finished with value: 0.5481272099111445 and parameters: {'max_depth': 4, 'min_samples_split': 6}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[dtc]	fold 1 took 2.17 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 2.37 seconds
+[dtc]	training fold 3
+[etc]	fold 3 took 13.24 seconds
+[etc]	training fold 4
+[dtc]	fold 3 took 2.55 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 2.49 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 2.56 seconds
+[dtc]	AUC: 0.5442301569136289
+[I 2024-12-09 17:16:13,616] Trial 8 finished with value: 0.5442301569136289 and parameters: {'max_depth': 6, 'min_samples_split': 3}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[dtc]	fold 1 took 3.09 seconds
+[dtc]	training fold 2
+[etc]	fold 4 took 13.19 seconds
+[etc]	training fold 5
+[dtc]	fold 2 took 3.25 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 3.35 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 3.79 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 3.74 seconds
+[dtc]	AUC: 0.5206337039416871
+[I 2024-12-09 17:16:30,854] Trial 9 finished with value: 0.5206337039416871 and parameters: {'max_depth': 10, 'min_samples_split': 5}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[etc]	fold 5 took 13.31 seconds
+[etc]	AUC: 0.5639980179527994
+[I 2024-12-09 17:16:33,048] Trial 2 finished with value: 0.5639980179527994 and parameters: {'n_estimators': 358, 'max_depth': 17, 'min_samples_split': 2}. Best is trial 0 with value: 0.5668775247418522.
+[etc]	training fold 1
+[dtc]	fold 1 took 3.19 seconds
+[dtc]	training fold 2
+[rf]	fold 3 took 54.18 seconds
+[rf]	training fold 4
+[dtc]	fold 2 took 3.27 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 3.25 seconds
+[dtc]	training fold 4
+[etc]	fold 1 took 9.55 seconds
+[etc]	training fold 2
+[dtc]	fold 4 took 3.19 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 3.17 seconds
+[dtc]	AUC: 0.527710179644239
+[I 2024-12-09 17:16:46,949] Trial 10 finished with value: 0.527710179644239 and parameters: {'max_depth': 9, 'min_samples_split': 8}. Best is trial 2 with value: 0.556459417536802.
+[dtc]	training fold 1
+[dtc]	fold 1 took 1.15 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.18 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 1.21 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.14 seconds
+[dtc]	training fold 5
+[etc]	fold 2 took 9.49 seconds
+[etc]	training fold 3
+[dtc]	fold 5 took 1.14 seconds
+[dtc]	AUC: 0.5599836007440226
+[I 2024-12-09 17:16:52,786] Trial 11 finished with value: 0.5599836007440226 and parameters: {'max_depth': 3, 'min_samples_split': 2}. Best is trial 11 with value: 0.5599836007440226.
+[dtc]	training fold 1
+[dtc]	fold 1 took 1.11 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.09 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 1.10 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.10 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 1.06 seconds
+[dtc]	AUC: 0.5602413777806816
+[I 2024-12-09 17:16:58,256] Trial 12 finished with value: 0.5602413777806816 and parameters: {'max_depth': 3, 'min_samples_split': 2}. Best is trial 12 with value: 0.5602413777806816.
+[dtc]	training fold 1
+[dtc]	fold 1 took 2.85 seconds
+[dtc]	training fold 2
+[etc]	fold 3 took 9.10 seconds
+[etc]	training fold 4
+[dtc]	fold 2 took 2.80 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 2.87 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 2.79 seconds
+[dtc]	training fold 5
+[etc]	fold 4 took 9.26 seconds
+[etc]	training fold 5
+[dtc]	fold 5 took 2.85 seconds
+[dtc]	AUC: 0.5340621772776474
+[I 2024-12-09 17:17:12,441] Trial 13 finished with value: 0.5340621772776474 and parameters: {'max_depth': 8, 'min_samples_split': 2}. Best is trial 12 with value: 0.5602413777806816.
+[dtc]	training fold 1
+[dtc]	fold 1 took 2.62 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 2.61 seconds
+[dtc]	training fold 3
+[etc]	fold 5 took 9.68 seconds
+[etc]	AUC: 0.5599647109015669
+[I 2024-12-09 17:17:20,125] Trial 3 finished with value: 0.5599647109015669 and parameters: {'n_estimators': 244, 'max_depth': 19, 'min_samples_split': 5}. Best is trial 0 with value: 0.5668775247418522.
+[etc]	training fold 1
+[dtc]	fold 3 took 2.59 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 2.58 seconds
+[dtc]	training fold 5
+[etc]	fold 1 took 5.38 seconds
+[etc]	training fold 2
+[dtc]	fold 5 took 2.70 seconds
+[dtc]	AUC: 0.5343118872993584
+[I 2024-12-09 17:17:25,566] Trial 14 finished with value: 0.5343118872993584 and parameters: {'max_depth': 7, 'min_samples_split': 2}. Best is trial 12 with value: 0.5602413777806816.
+[dtc]	training fold 1
+[dtc]	fold 1 took 1.19 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.18 seconds
+[dtc]	training fold 3
+[rf]	fold 4 took 53.58 seconds
+[rf]	training fold 5
+[dtc]	fold 3 took 1.17 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.19 seconds
+[dtc]	training fold 5
+[etc]	fold 2 took 5.33 seconds
+[etc]	training fold 3
+[dtc]	fold 5 took 1.18 seconds
+[dtc]	AUC: 0.5554800852625024
+[I 2024-12-09 17:17:31,495] Trial 15 finished with value: 0.5554800852625024 and parameters: {'max_depth': 3, 'min_samples_split': 7}. Best is trial 12 with value: 0.5602413777806816.
+[dtc]	training fold 1
+[dtc]	fold 1 took 4.00 seconds
+[dtc]	training fold 2
+[etc]	fold 3 took 5.24 seconds
+[etc]	training fold 4
+[dtc]	fold 2 took 4.03 seconds
+[dtc]	training fold 3
+[etc]	fold 4 took 5.07 seconds
+[etc]	training fold 5
+[dtc]	fold 3 took 3.79 seconds
+[dtc]	training fold 4
+[etc]	fold 5 took 4.86 seconds
+[etc]	AUC: 0.5692127501993872
+[I 2024-12-09 17:17:46,024] Trial 4 finished with value: 0.5692127501993872 and parameters: {'n_estimators': 194, 'max_depth': 13, 'min_samples_split': 4}. Best is trial 4 with value: 0.5692127501993872.
+[etc]	training fold 1
+[dtc]	fold 4 took 3.72 seconds
+[dtc]	training fold 5
+[etc]	fold 1 took 3.57 seconds
+[etc]	training fold 2
+[dtc]	fold 5 took 3.99 seconds
+[dtc]	AUC: 0.521983985288437
+[I 2024-12-09 17:17:51,052] Trial 16 finished with value: 0.521983985288437 and parameters: {'max_depth': 12, 'min_samples_split': 2}. Best is trial 12 with value: 0.5602413777806816.
+[dtc]	training fold 1
+[etc]	fold 2 took 3.72 seconds
+[etc]	training fold 3
+[dtc]	fold 1 took 2.52 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 2.59 seconds
+[dtc]	training fold 3
+[etc]	fold 3 took 3.54 seconds
+[etc]	training fold 4
+[dtc]	fold 3 took 2.62 seconds
+[dtc]	training fold 4
+[etc]	fold 4 took 3.66 seconds
+[etc]	training fold 5
+[dtc]	fold 4 took 2.54 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 2.48 seconds
+[dtc]	AUC: 0.5457778379491356
+[I 2024-12-09 17:18:03,813] Trial 17 finished with value: 0.5457778379491356 and parameters: {'max_depth': 7, 'min_samples_split': 3}. Best is trial 12 with value: 0.5602413777806816.
+[dtc]	training fold 1
+[etc]	fold 5 took 3.55 seconds
+[etc]	AUC: 0.5807200213356678
+[I 2024-12-09 17:18:04,067] Trial 5 finished with value: 0.5807200213356678 and parameters: {'n_estimators': 245, 'max_depth': 8, 'min_samples_split': 6}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[dtc]	fold 1 took 1.10 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.12 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 1.09 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.15 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 1.28 seconds
+[dtc]	AUC: 0.5604211569709497
+[I 2024-12-09 17:18:09,571] Trial 18 finished with value: 0.5604211569709497 and parameters: {'max_depth': 3, 'min_samples_split': 10}. Best is trial 18 with value: 0.5604211569709497.
+[dtc]	training fold 1
+[dtc]	fold 1 took 4.90 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 4.90 seconds
+[dtc]	training fold 3
+[etc]	fold 1 took 18.03 seconds
+[etc]	training fold 2
+[rf]	fold 5 took 54.82 seconds
+[rf]	AUC: 0.5629457986117653
+[I 2024-12-09 17:18:22,953] Trial 0 finished with value: 0.5629457986117653 and parameters: {'n_estimators': 316, 'max_depth': 15, 'min_samples_split': 5}. Best is trial 0 with value: 0.5629457986117653.
+[rf]	training fold 1
+[dtc]	fold 3 took 4.31 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 4.13 seconds
+[dtc]	training fold 5
+[rf]	fold 1 took 7.54 seconds
+[rf]	training fold 2
+[dtc]	fold 5 took 4.16 seconds
+[dtc]	AUC: 0.5155084938485587
+[I 2024-12-09 17:18:32,009] Trial 19 finished with value: 0.5155084938485587 and parameters: {'max_depth': 14, 'min_samples_split': 10}. Best is trial 18 with value: 0.5604211569709497.
+[dtc]	Best params for dtc: {'max_depth': 3, 'min_samples_split': 10}
+[rf]	fold 2 took 7.65 seconds
+[rf]	training fold 3
+[etc]	fold 2 took 17.54 seconds
+[etc]	training fold 3
+[rf]	fold 3 took 6.50 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 6.87 seconds
+[rf]	training fold 5
+[etc]	fold 3 took 18.37 seconds
+[etc]	training fold 4
+[rf]	fold 5 took 7.29 seconds
+[rf]	AUC: 0.5780985922173715
+[I 2024-12-09 17:18:58,819] Trial 1 finished with value: 0.5780985922173715 and parameters: {'n_estimators': 159, 'max_depth': 3, 'min_samples_split': 2}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[etc]	fold 4 took 18.68 seconds
+[etc]	training fold 5
+[rf]	fold 1 took 34.05 seconds
+[rf]	training fold 2
+[etc]	fold 5 took 18.41 seconds
+[etc]	AUC: 0.5648367202770751
+[I 2024-12-09 17:19:35,103] Trial 6 finished with value: 0.5648367202770751 and parameters: {'n_estimators': 494, 'max_depth': 20, 'min_samples_split': 7}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 4.39 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 4.28 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 4.27 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 4.17 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 4.21 seconds
+[etc]	AUC: 0.5791852842682452
+[I 2024-12-09 17:19:56,437] Trial 7 finished with value: 0.5791852842682452 and parameters: {'n_estimators': 494, 'max_depth': 5, 'min_samples_split': 10}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 5.16 seconds
+[etc]	training fold 2
+[rf]	fold 2 took 31.09 seconds
+[rf]	training fold 3
+[etc]	fold 2 took 4.94 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 5.15 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 5.14 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 5.24 seconds
+[etc]	AUC: 0.5674378064881114
+[I 2024-12-09 17:20:22,064] Trial 8 finished with value: 0.5674378064881114 and parameters: {'n_estimators': 157, 'max_depth': 19, 'min_samples_split': 10}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 6.66 seconds
+[etc]	training fold 2
+[rf]	fold 3 took 30.93 seconds
+[rf]	training fold 4
+[etc]	fold 2 took 6.75 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 6.62 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 6.73 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 7.19 seconds
+[etc]	AUC: 0.5613998378713716
+[I 2024-12-09 17:20:56,029] Trial 9 finished with value: 0.5613998378713716 and parameters: {'n_estimators': 202, 'max_depth': 17, 'min_samples_split': 6}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 1.19 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 1.20 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 1.18 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 1.14 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 1.09 seconds
+[etc]	AUC: 0.5779494443012536
+[I 2024-12-09 17:21:01,855] Trial 10 finished with value: 0.5779494443012536 and parameters: {'n_estimators': 84, 'max_depth': 7, 'min_samples_split': 3}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 2.77 seconds
+[etc]	training fold 2
+[rf]	fold 4 took 31.36 seconds
+[rf]	training fold 5
+[etc]	fold 2 took 2.65 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 3.02 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 2.91 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 2.71 seconds
+[etc]	AUC: 0.5786859310324002
+[I 2024-12-09 17:21:15,937] Trial 11 finished with value: 0.5786859310324002 and parameters: {'n_estimators': 495, 'max_depth': 3, 'min_samples_split': 7}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 5.38 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 6.22 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 5.69 seconds
+[etc]	training fold 4
+[rf]	fold 5 took 30.33 seconds
+[rf]	AUC: 0.573960798115385
+[I 2024-12-09 17:21:36,588] Trial 2 finished with value: 0.573960798115385 and parameters: {'n_estimators': 271, 'max_depth': 9, 'min_samples_split': 5}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[etc]	fold 4 took 5.48 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 5.51 seconds
+[etc]	AUC: 0.5784092140476025
+[I 2024-12-09 17:21:44,245] Trial 12 finished with value: 0.5784092140476025 and parameters: {'n_estimators': 391, 'max_depth': 8, 'min_samples_split': 7}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 4.24 seconds
+[etc]	training fold 2
+[rf]	fold 1 took 13.90 seconds
+[rf]	training fold 2
+[etc]	fold 2 took 4.16 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 4.09 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 4.10 seconds
+[etc]	training fold 5
+[rf]	fold 2 took 13.62 seconds
+[rf]	training fold 3
+[etc]	fold 5 took 4.04 seconds
+[etc]	AUC: 0.5777086363892054
+[I 2024-12-09 17:22:04,899] Trial 13 finished with value: 0.5777086363892054 and parameters: {'n_estimators': 290, 'max_depth': 8, 'min_samples_split': 5}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 3.04 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 2.95 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 3.09 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 3.02 seconds
+[etc]	training fold 5
+[rf]	fold 3 took 13.63 seconds
+[rf]	training fold 4
+[etc]	fold 5 took 2.96 seconds
+[etc]	AUC: 0.5784676372738714
+[I 2024-12-09 17:22:19,988] Trial 14 finished with value: 0.5784676372738714 and parameters: {'n_estimators': 430, 'max_depth': 4, 'min_samples_split': 8}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 1.65 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 1.64 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 1.61 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 1.63 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 1.59 seconds
+[etc]	AUC: 0.5738370704823949
+[I 2024-12-09 17:22:28,130] Trial 15 finished with value: 0.5738370704823949 and parameters: {'n_estimators': 92, 'max_depth': 10, 'min_samples_split': 10}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 2.40 seconds
+[etc]	training fold 2
+[rf]	fold 4 took 13.18 seconds
+[rf]	training fold 5
+[etc]	fold 2 took 2.42 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 2.59 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 2.46 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 2.45 seconds
+[etc]	AUC: 0.5785202816447117
+[I 2024-12-09 17:22:40,480] Trial 16 finished with value: 0.5785202816447117 and parameters: {'n_estimators': 288, 'max_depth': 5, 'min_samples_split': 5}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[rf]	fold 5 took 13.56 seconds
+[rf]	AUC: 0.576760603464828
+[I 2024-12-09 17:22:44,488] Trial 3 finished with value: 0.576760603464828 and parameters: {'n_estimators': 132, 'max_depth': 8, 'min_samples_split': 2}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[etc]	fold 1 took 9.10 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 9.07 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 8.95 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 9.35 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 9.59 seconds
+[etc]	AUC: 0.57339467070612
+[I 2024-12-09 17:23:26,572] Trial 17 finished with value: 0.57339467070612 and parameters: {'n_estimators': 435, 'max_depth': 11, 'min_samples_split': 8}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 1.71 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 1.72 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 1.60 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 1.59 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 1.54 seconds
+[etc]	AUC: 0.5772573178013733
+[I 2024-12-09 17:23:34,759] Trial 18 finished with value: 0.5772573178013733 and parameters: {'n_estimators': 146, 'max_depth': 6, 'min_samples_split': 6}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	training fold 1
+[etc]	fold 1 took 5.51 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 6.09 seconds
+[etc]	training fold 3
+[rf]	fold 1 took 65.42 seconds
+[rf]	training fold 2
+[etc]	fold 3 took 5.82 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 5.49 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 5.54 seconds
+[etc]	AUC: 0.5773130687245538
+[I 2024-12-09 17:24:03,237] Trial 19 finished with value: 0.5773130687245538 and parameters: {'n_estimators': 332, 'max_depth': 9, 'min_samples_split': 4}. Best is trial 5 with value: 0.5807200213356678.
+[etc]	Best params for etc: {'n_estimators': 245, 'max_depth': 8, 'min_samples_split': 6}
+[rf]	fold 2 took 63.15 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 62.22 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 62.68 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 62.65 seconds
+[rf]	AUC: 0.5675562229187134
+[I 2024-12-09 17:28:00,611] Trial 4 finished with value: 0.5675562229187134 and parameters: {'n_estimators': 386, 'max_depth': 15, 'min_samples_split': 8}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[rf]	fold 1 took 10.83 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 10.87 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 10.99 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 10.72 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 11.03 seconds
+[rf]	AUC: 0.5773685524174255
+[I 2024-12-09 17:28:55,050] Trial 5 finished with value: 0.5773685524174255 and parameters: {'n_estimators': 170, 'max_depth': 5, 'min_samples_split': 9}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[rf]	fold 1 took 85.00 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 84.14 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 83.15 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 82.62 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 85.22 seconds
+[rf]	AUC: 0.5600866013261838
+[I 2024-12-09 17:35:55,184] Trial 6 finished with value: 0.5600866013261838 and parameters: {'n_estimators': 471, 'max_depth': 19, 'min_samples_split': 3}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[rf]	fold 1 took 14.66 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 13.82 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 13.07 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 13.35 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 13.72 seconds
+[rf]	AUC: 0.5566507544379272
+[I 2024-12-09 17:37:03,801] Trial 7 finished with value: 0.5566507544379272 and parameters: {'n_estimators': 77, 'max_depth': 19, 'min_samples_split': 10}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[rf]	fold 1 took 27.02 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 25.16 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 26.63 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 27.02 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 25.65 seconds
+[rf]	AUC: 0.5589807020968627
+[I 2024-12-09 17:39:15,289] Trial 8 finished with value: 0.5589807020968627 and parameters: {'n_estimators': 152, 'max_depth': 17, 'min_samples_split': 4}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[rf]	fold 1 took 85.09 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 84.82 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 87.31 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 84.42 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 87.70 seconds
+[rf]	AUC: 0.5598116213383936
+[I 2024-12-09 17:46:24,629] Trial 9 finished with value: 0.5598116213383936 and parameters: {'n_estimators': 487, 'max_depth': 20, 'min_samples_split': 4}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[rf]	fold 1 took 9.60 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 9.74 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 9.55 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 9.71 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 9.38 seconds
+[rf]	AUC: 0.5776227886524925
+[I 2024-12-09 17:47:12,640] Trial 10 finished with value: 0.5776227886524925 and parameters: {'n_estimators': 234, 'max_depth': 3, 'min_samples_split': 7}. Best is trial 1 with value: 0.5780985922173715.
+[rf]	training fold 1
+[rf]	fold 1 took 12.05 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 12.43 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 12.05 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 12.21 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 12.50 seconds
+[rf]	AUC: 0.5796225398610749
+[I 2024-12-09 17:48:13,904] Trial 11 finished with value: 0.5796225398610749 and parameters: {'n_estimators': 235, 'max_depth': 4, 'min_samples_split': 7}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 9.02 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 9.17 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 8.90 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 9.07 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 9.85 seconds
+[rf]	AUC: 0.5789990915505651
+[I 2024-12-09 17:48:59,932] Trial 12 finished with value: 0.5789990915505651 and parameters: {'n_estimators': 224, 'max_depth': 3, 'min_samples_split': 7}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 30.94 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 30.75 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 29.59 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 30.18 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 32.49 seconds
+[rf]	AUC: 0.5734706977289833
+[I 2024-12-09 17:51:33,912] Trial 13 finished with value: 0.5734706977289833 and parameters: {'n_estimators': 332, 'max_depth': 7, 'min_samples_split': 7}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 29.91 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 30.71 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 31.74 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 29.42 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 29.46 seconds
+[rf]	AUC: 0.5758441371206816
+[I 2024-12-09 17:54:05,169] Trial 14 finished with value: 0.5758441371206816 and parameters: {'n_estimators': 222, 'max_depth': 11, 'min_samples_split': 7}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 29.87 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 29.38 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 29.56 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 30.45 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 31.47 seconds
+[rf]	AUC: 0.5759184271465374
+[I 2024-12-09 17:56:35,922] Trial 15 finished with value: 0.5759184271465374 and parameters: {'n_estimators': 380, 'max_depth': 6, 'min_samples_split': 6}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 7.13 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 7.20 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 7.07 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 7.37 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 7.27 seconds
+[rf]	AUC: 0.5600017222993404
+[I 2024-12-09 17:57:11,991] Trial 16 finished with value: 0.5600017222993404 and parameters: {'n_estimators': 58, 'max_depth': 10, 'min_samples_split': 9}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 15.57 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 15.29 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 15.35 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 17.10 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 16.99 seconds
+[rf]	AUC: 0.5791489743500324
+[I 2024-12-09 17:58:32,310] Trial 17 finished with value: 0.5791489743500324 and parameters: {'n_estimators': 227, 'max_depth': 5, 'min_samples_split': 6}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 18.54 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 17.71 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 19.29 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 20.21 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 18.67 seconds
+[rf]	AUC: 0.5787791610063946
+[I 2024-12-09 18:00:06,753] Trial 18 finished with value: 0.5787791610063946 and parameters: {'n_estimators': 278, 'max_depth': 5, 'min_samples_split': 6}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	training fold 1
+[rf]	fold 1 took 56.28 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 59.18 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 62.38 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 59.69 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 57.60 seconds
+[rf]	AUC: 0.5664871012606456
+[I 2024-12-09 18:05:01,909] Trial 19 finished with value: 0.5664871012606456 and parameters: {'n_estimators': 393, 'max_depth': 13, 'min_samples_split': 8}. Best is trial 11 with value: 0.5796225398610749.
+[rf]	Best params for rf: {'n_estimators': 235, 'max_depth': 4, 'min_samples_split': 7}
+Optimization done in 3068.48 seconds
+[('etc', ExtraTreesClassifier(max_depth=8, min_samples_split=6, n_estimators=245)), ('dtc', DecisionTreeClassifier(max_depth=3, min_samples_split=10)), ('rf', RandomForestClassifier(max_depth=4, min_samples_split=7, n_estimators=235))]
+training base model etc
+[etc]	training fold 1
+[etc]	fold 1 took 4.06 seconds
+[etc]	training fold 2
+[etc]	fold 2 took 3.80 seconds
+[etc]	training fold 3
+[etc]	fold 3 took 3.77 seconds
+[etc]	training fold 4
+[etc]	fold 4 took 3.77 seconds
+[etc]	training fold 5
+[etc]	fold 5 took 3.56 seconds
+[etc]	AUC: 0.5774311511172698
+etc took 18.97 seconds
+training base model dtc
+[dtc]	training fold 1
+[dtc]	fold 1 took 1.23 seconds
+[dtc]	training fold 2
+[dtc]	fold 2 took 1.23 seconds
+[dtc]	training fold 3
+[dtc]	fold 3 took 1.23 seconds
+[dtc]	training fold 4
+[dtc]	fold 4 took 1.25 seconds
+[dtc]	training fold 5
+[dtc]	fold 5 took 1.25 seconds
+[dtc]	AUC: 0.557731868056104
+dtc took 6.19 seconds
+training base model rf
+[rf]	training fold 1
+[rf]	fold 1 took 14.15 seconds
+[rf]	training fold 2
+[rf]	fold 2 took 14.40 seconds
+[rf]	training fold 3
+[rf]	fold 3 took 14.42 seconds
+[rf]	training fold 4
+[rf]	fold 4 took 13.85 seconds
+[rf]	training fold 5
+[rf]	fold 5 took 14.17 seconds
+[rf]	AUC: 0.577434524899919
+rf took 70.99 seconds
+training & testing meta model
+Training & Testing done in 0.02 seconds
+
+--- 3166.07 seconds ---
+

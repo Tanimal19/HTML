@@ -1,0 +1,669 @@
+[LOG] 	start fill NaN of same_season_test_data
+[LOG] 	filling season with random
+[LOG] 	season finished in 0.01 seconds
+[LOG] 	filling is_night_game with random
+[LOG] 	is_night_game finished in 0.02 seconds
+[LOG] 	filling home_pitcher with mode
+[LOG] 	filling away_pitcher with mode
+[LOG] 	filling home_team_rest with mode
+[LOG] 	filling home_pitcher_rest with mode
+[LOG] 	filling away_team_rest with mode
+[LOG] 	filling away_pitcher_rest with mode
+[LOG] 	filling home_batting_batting_avg_10RA with mean
+[LOG] 	filling home_batting_onbase_perc_10RA with mean
+[LOG] 	filling home_batting_onbase_plus_slugging_10RA with mean
+[LOG] 	filling home_batting_leverage_index_avg_10RA with mean
+[LOG] 	filling home_batting_RBI_10RA with mean
+[LOG] 	filling home_pitching_earned_run_avg_10RA with mean
+[LOG] 	filling home_pitching_SO_batters_faced_10RA with mean
+[LOG] 	filling home_pitching_H_batters_faced_10RA with mean
+[LOG] 	filling home_pitching_BB_batters_faced_10RA with mean
+[LOG] 	filling home_pitcher_earned_run_avg_10RA with mean
+[LOG] 	filling home_pitcher_SO_batters_faced_10RA with mean
+[LOG] 	filling home_pitcher_H_batters_faced_10RA with mean
+[LOG] 	filling home_pitcher_BB_batters_faced_10RA with mean
+[LOG] 	filling away_batting_batting_avg_10RA with mean
+[LOG] 	filling away_batting_onbase_perc_10RA with mean
+[LOG] 	filling away_batting_onbase_plus_slugging_10RA with mean
+[LOG] 	filling away_batting_leverage_index_avg_10RA with mean
+[LOG] 	filling away_batting_RBI_10RA with mean
+[LOG] 	filling away_pitching_earned_run_avg_10RA with mean
+[LOG] 	filling away_pitching_SO_batters_faced_10RA with mean
+[LOG] 	filling away_pitching_H_batters_faced_10RA with mean
+[LOG] 	filling away_pitching_BB_batters_faced_10RA with mean
+[LOG] 	filling away_pitcher_earned_run_avg_10RA with mean
+[LOG] 	away_pitcher finished in 1.05 seconds
+[LOG] 	home_pitcher finished in 1.10 seconds
+[LOG] 	filling away_pitcher_SO_batters_faced_10RA with mean
+[LOG] 	home_team_rest finished in 1.08 seconds
+[LOG] 	filling away_pitcher_H_batters_faced_10RA with mean
+[LOG] 	filling away_pitcher_BB_batters_faced_10RA with mean
+[LOG] 	filling home_team_errors_mean with mean
+[LOG] 	away_team_rest finished in 1.15 seconds
+[LOG] 	filling home_team_errors_std with mean
+[LOG] 	home_batting_batting_avg_10RA finished in 1.10 seconds
+[LOG] 	filling home_team_errors_skew with mean
+[LOG] 	filling home_team_spread_mean with mean
+[LOG] 	filling home_team_spread_std with mean
+[LOG] 	filling home_team_spread_skew with mean
+[LOG] 	home_batting_onbase_plus_slugging_10RA finished in 1.22 seconds
+[LOG] 	filling home_team_wins_mean with mean
+[LOG] 	home_batting_onbase_perc_10RA finished in 1.30 seconds
+[LOG] 	home_batting_leverage_index_avg_10RA finished in 1.26 seconds
+[LOG] 	home_pitching_H_batters_faced_10RA finished in 1.11 seconds
+[LOG] 	home_batting_RBI_10RA finished in 1.23 seconds
+[LOG] 	home_pitching_earned_run_avg_10RA finished in 1.20 seconds
+[LOG] 	filling home_team_wins_std with mean
+[LOG] 	filling home_team_wins_skew with mean
+[LOG] 	home_pitcher_SO_batters_faced_10RA finished in 1.08 seconds
+[LOG] 	home_pitcher_H_batters_faced_10RA finished in 1.06 seconds
+[LOG] 	filling home_batting_batting_avg_mean with mean
+[LOG] 	home_pitching_SO_batters_faced_10RA finished in 1.29 seconds
+[LOG] 	filling home_batting_batting_avg_std with mean
+[LOG] 	home_pitching_BB_batters_faced_10RA finished in 1.25 seconds
+[LOG] 	away_pitching_earned_run_avg_10RA finished in 0.85 seconds
+[LOG] 	filling home_batting_batting_avg_skew with mean
+[LOG] 	filling home_batting_onbase_perc_mean with mean
+[LOG] 	away_pitching_SO_batters_faced_10RA finished in 0.84 seconds
+[LOG] 	home_pitcher_rest finished in 1.73 seconds
+[LOG] 	filling home_batting_onbase_perc_std with mean
+[LOG] 	home_pitcher_earned_run_avg_10RA finished in 1.33 seconds
+[LOG] 	filling home_batting_onbase_perc_skew with mean
+[LOG] 	filling home_batting_onbase_plus_slugging_mean with mean
+[LOG] 	filling home_batting_onbase_plus_slugging_std with mean
+[LOG] 	away_batting_onbase_perc_10RA finished in 1.25 seconds
+[LOG] 	away_batting_onbase_plus_slugging_10RA finished in 1.22 seconds
+[LOG] 	away_batting_batting_avg_10RA finished in 1.31 seconds
+[LOG] 	filling home_batting_onbase_plus_slugging_skew with mean
+[LOG] 	away_pitcher_rest finished in 1.85 seconds
+[LOG] 	away_batting_RBI_10RA finished in 1.15 seconds
+[WARNING] 	away_batting_RBI_10RA still has NaN valuesm at:
+
+[LOG] 	away_batting_leverage_index_avg_10RA finished in 1.21 seconds
+[LOG] 	filling home_batting_leverage_index_avg_mean with mean
+      away_batting_RBI_10RA away_team_abbr  season
+4924                    NaN            VQC  2020.0
+	fill with mean of the whole data
+[LOG] 	filling home_batting_leverage_index_avg_std with mean
+[LOG] 	filling home_batting_leverage_index_avg_skew with mean
+[LOG] 	home_pitcher_BB_batters_faced_10RA finished in 1.50 seconds
+[LOG] 	away_pitcher_BB_batters_faced_10RA finished in 0.98 seconds
+[LOG] 	filling home_batting_wpa_bat_mean with mean
+[LOG] 	away_pitching_H_batters_faced_10RA finished in 1.18 seconds
+[LOG] 	home_team_errors_skew finished in 0.86 seconds
+[LOG] 	filling home_batting_wpa_bat_std with mean
+[LOG] 	away_pitching_BB_batters_faced_10RA finished in 1.20 seconds
+[LOG] 	filling home_batting_wpa_bat_skew with mean
+[LOG] 	filling home_batting_RBI_mean with mean
+[LOG] 	filling home_batting_RBI_std with mean
+[LOG] 	home_team_spread_skew finished in 0.84 seconds
+[LOG] 	home_team_errors_mean finished in 1.08 seconds
+[LOG] 	filling home_batting_RBI_skew with mean
+[LOG] 	away_pitcher_H_batters_faced_10RA finished in 1.21 seconds
+[LOG] 	filling home_pitching_earned_run_avg_mean with mean
+[LOG] 	home_team_errors_std finished in 1.11 seconds
+[LOG] 	filling home_pitching_earned_run_avg_std with mean
+[LOG] 	home_team_spread_mean finished in 1.09 seconds
+[LOG] 	filling home_pitching_earned_run_avg_skew with mean
+[LOG] 	filling home_pitching_SO_batters_faced_mean with mean
+[LOG] 	away_pitcher_earned_run_avg_10RA finished in 1.47 seconds
+[LOG] 	filling home_pitching_SO_batters_faced_std with mean
+[LOG] 	away_pitcher_SO_batters_faced_10RA finished in 1.50 seconds
+[LOG] 	filling home_pitching_SO_batters_faced_skew with mean
+[LOG] 	home_team_wins_mean finished in 1.15 seconds
+[LOG] 	home_team_wins_std finished in 1.09 seconds
+[LOG] 	home_batting_onbase_perc_std finished in 0.84 seconds
+[LOG] 	home_team_spread_std finished in 1.27 seconds
+[LOG] 	filling home_pitching_H_batters_faced_mean with mean
+[LOG] 	filling home_pitching_H_batters_faced_std with mean
+[LOG] 	filling home_pitching_H_batters_faced_skew with mean
+[LOG] 	filling home_pitching_BB_batters_faced_mean with mean
+[LOG] 	home_batting_batting_avg_mean finished in 1.16 seconds
+[LOG] 	home_team_wins_skew finished in 1.22 seconds
+[LOG] 	filling home_pitching_BB_batters_faced_std with mean
+[LOG] 	filling home_pitching_BB_batters_faced_skew with mean
+[LOG] 	home_batting_batting_avg_skew finished in 1.15 seconds
+[LOG] 	filling home_pitching_leverage_index_avg_mean with mean
+[LOG] 	home_batting_onbase_perc_mean finished in 1.14 seconds
+[LOG] 	home_batting_batting_avg_std finished in 1.24 seconds
+[LOG] 	filling home_pitching_leverage_index_avg_std with mean
+[LOG] 	home_batting_onbase_perc_skew finished in 1.10 seconds
+[LOG] 	filling home_pitching_leverage_index_avg_skew with mean
+[LOG] 	home_batting_onbase_plus_slugging_mean finished in 1.08 seconds
+[LOG] 	home_batting_onbase_plus_slugging_std finished in 1.08 seconds
+[LOG] 	home_batting_leverage_index_avg_mean finished in 1.02 seconds
+[LOG] 	filling home_pitching_wpa_def_mean with mean
+[LOG] 	filling home_pitching_wpa_def_std with mean
+[LOG] 	home_batting_leverage_index_avg_skew finished in 0.98 seconds
+[LOG] 	home_batting_wpa_bat_skew finished in 0.87 seconds
+[LOG] 	home_batting_wpa_bat_std finished in 0.92 seconds
+[LOG] 	filling home_pitching_wpa_def_skew with mean
+[LOG] 	home_batting_RBI_mean finished in 0.89 seconds
+[LOG] 	home_batting_RBI_std finished in 0.87 seconds
+[LOG] 	filling home_pitcher_earned_run_avg_mean with mean
+[LOG] 	home_batting_onbase_plus_slugging_skew finished in 1.19 seconds
+[LOG] 	filling home_pitcher_earned_run_avg_std with mean
+[LOG] 	home_batting_wpa_bat_mean finished in 1.05 seconds
+[LOG] 	filling home_pitcher_earned_run_avg_skew with mean
+[LOG] 	home_batting_leverage_index_avg_std finished in 1.18 seconds
+[LOG] 	filling home_pitcher_SO_batters_faced_mean with mean
+[LOG] 	filling home_pitcher_SO_batters_faced_std with mean
+[LOG] 	home_pitching_earned_run_avg_std finished in 0.92 seconds
+[LOG] 	filling home_pitcher_SO_batters_faced_skew with mean
+[LOG] 	home_pitching_SO_batters_faced_std finished in 0.82 seconds
+[WARNING] 	home_pitching_SO_batters_faced_std still has NaN valuesm at:
+
+      home_pitching_SO_batters_faced_std home_team_abbr  season
+4924                                 NaN            ECN  2020.0
+	fill with mean of the whole data
+[LOG] 	filling home_pitcher_H_batters_faced_mean with mean
+[LOG] 	home_pitching_earned_run_avg_mean finished in 1.07 seconds
+[LOG] 	filling home_pitcher_H_batters_faced_std with mean
+[LOG] 	home_batting_RBI_skew finished in 1.14 seconds
+[LOG] 	filling home_pitcher_H_batters_faced_skew with mean
+[LOG] 	filling home_pitcher_BB_batters_faced_mean with mean
+[LOG] 	filling home_pitcher_BB_batters_faced_std with mean
+[LOG] 	home_pitching_earned_run_avg_skew finished in 1.13 seconds
+[LOG] 	filling home_pitcher_BB_batters_faced_skew with mean
+[LOG] 	home_pitching_SO_batters_faced_mean finished in 1.12 seconds
+[LOG] 	filling home_pitcher_leverage_index_avg_mean with mean
+[LOG] 	home_pitching_BB_batters_faced_std finished in 0.84 seconds
+[LOG] 	filling home_pitcher_leverage_index_avg_std with mean
+[LOG] 	filling home_pitcher_leverage_index_avg_skew with mean
+[LOG] 	filling home_pitcher_wpa_def_mean with mean
+[LOG] 	home_pitching_H_batters_faced_mean finished in 1.10 seconds
+[LOG] 	home_pitching_BB_batters_faced_skew finished in 0.93 seconds
+[LOG] 	home_pitching_BB_batters_faced_mean finished in 1.01 seconds
+[LOG] 	filling home_pitcher_wpa_def_std with mean
+[LOG] 	home_pitching_H_batters_faced_std finished in 1.11 seconds
+[LOG] 	home_pitching_SO_batters_faced_skew finished in 1.19 seconds
+[LOG] 	filling home_pitcher_wpa_def_skew with mean
+[LOG] 	home_pitching_H_batters_faced_skew finished in 1.14 seconds
+[WARNING] 	home_pitching_H_batters_faced_skew still has NaN valuesm at:
+
+      home_pitching_H_batters_faced_skew home_team_abbr  season
+4924                                 NaN            ECN  2020.0
+	fill with mean of the whole data
+[LOG] 	filling away_team_errors_mean with mean
+[LOG] 	filling away_team_errors_std with mean
+[LOG] 	filling away_team_errors_skew with mean
+[LOG] 	home_pitching_wpa_def_mean finished in 0.97 seconds
+[LOG] 	filling away_team_spread_mean with mean
+[LOG] 	filling away_team_spread_std with mean
+[LOG] 	filling away_team_spread_skew with mean
+[LOG] 	home_pitching_wpa_def_std finished in 1.07 seconds
+[LOG] 	home_pitching_leverage_index_avg_std finished in 1.21 seconds
+[LOG] 	filling away_team_wins_mean with mean
+[LOG] 	home_pitching_leverage_index_avg_mean finished in 1.27 seconds
+[LOG] 	home_pitching_wpa_def_skew finished in 1.08 seconds
+[LOG] 	home_pitcher_earned_run_avg_mean finished in 1.05 seconds
+[LOG] 	filling away_team_wins_std with mean
+[LOG] 	home_pitching_leverage_index_avg_skew finished in 1.26 seconds
+[LOG] 	filling away_team_wins_skew with mean
+[LOG] 	filling away_batting_batting_avg_mean with mean
+[LOG] 	filling away_batting_batting_avg_std with mean
+[LOG] 	filling away_batting_batting_avg_skew with mean
+[LOG] 	filling away_batting_onbase_perc_mean with mean
+[LOG] 	filling away_batting_onbase_perc_std with mean
+[LOG] 	filling away_batting_onbase_perc_skew with mean
+[LOG] 	home_pitcher_H_batters_faced_mean finished in 1.07 seconds
+[LOG] 	filling away_batting_onbase_plus_slugging_mean with mean
+[LOG] 	filling away_batting_onbase_plus_slugging_std with mean
+[LOG] 	filling away_batting_onbase_plus_slugging_skew with mean
+[LOG] 	home_pitcher_SO_batters_faced_mean finished in 1.40 seconds
+[LOG] 	filling away_batting_leverage_index_avg_mean with mean
+[LOG] 	home_pitcher_SO_batters_faced_std finished in 1.37 seconds
+[LOG] 	filling away_batting_leverage_index_avg_std with mean
+[LOG] 	filling away_batting_leverage_index_avg_skew with mean
+[LOG] 	filling away_batting_wpa_bat_mean with mean
+[LOG] 	home_pitcher_earned_run_avg_std finished in 1.66 seconds
+[LOG] 	filling away_batting_wpa_bat_std with mean
+[LOG] 	filling away_batting_wpa_bat_skew with mean
+[LOG] 	home_pitcher_BB_batters_faced_mean finished in 1.41 seconds
+[LOG] 	home_pitcher_H_batters_faced_std finished in 1.51 seconds
+[LOG] 	filling away_batting_RBI_mean with mean
+[LOG] 	filling away_batting_RBI_std with mean
+[LOG] 	home_pitcher_H_batters_faced_skew finished in 1.56 seconds
+[LOG] 	away_team_errors_skew finished in 1.06 seconds
+[LOG] 	away_team_spread_skew finished in 0.92 seconds
+[WARNING] 	away_team_spread_skew still has NaN valuesm at:
+[LOG] 	filling away_batting_RBI_skew with mean
+
+      away_team_spread_skew away_team_abbr  season
+4924                    NaN            VQC  2020.0
+	fill with mean of the whole data
+[LOG] 	filling away_pitching_earned_run_avg_mean with mean
+[LOG] 	away_team_errors_mean finished in 1.19 seconds
+[LOG] 	home_pitcher_earned_run_avg_skew finished in 1.90 seconds
+[LOG] 	home_pitcher_leverage_index_avg_mean finished in 1.48 seconds
+[LOG] 	away_team_spread_mean finished in 1.08 seconds
+[LOG] 	filling away_pitching_earned_run_avg_std with mean
+[LOG] 	home_pitcher_BB_batters_faced_std finished in 1.59 seconds
+[LOG] 	away_team_errors_std finished in 1.21 seconds
+[LOG] 	away_team_wins_skew finished in 0.94 seconds
+[LOG] 	home_pitcher_SO_batters_faced_skew finished in 1.84 seconds
+[LOG] 	filling away_pitching_earned_run_avg_skew with mean
+[LOG] 	filling away_pitching_SO_batters_faced_mean with mean
+[LOG] 	filling away_pitching_SO_batters_faced_std with mean
+[LOG] 	away_team_spread_std finished in 1.20 seconds
+[LOG] 	filling away_pitching_SO_batters_faced_skew with mean
+[LOG] 	away_team_wins_mean finished in 1.20 seconds
+[LOG] 	filling away_pitching_H_batters_faced_mean with mean
+[LOG] 	home_pitcher_wpa_def_mean finished in 1.60 seconds
+[LOG] 	home_pitcher_leverage_index_avg_std finished in 1.72 seconds
+[LOG] 	filling away_pitching_H_batters_faced_std with mean
+[LOG] 	home_pitcher_leverage_index_avg_skew finished in 1.71 seconds
+[LOG] 	away_batting_batting_avg_mean finished in 1.16 seconds
+[LOG] 	away_team_wins_std finished in 1.24 seconds
+[LOG] 	filling away_pitching_H_batters_faced_skew with mean
+[LOG] 	filling away_pitching_BB_batters_faced_mean with mean
+[LOG] 	away_batting_batting_avg_std finished in 1.23 seconds
+[LOG] 	home_pitcher_BB_batters_faced_skew finished in 1.94 seconds
+[LOG] 	filling away_pitching_BB_batters_faced_std with mean
+[LOG] 	away_batting_batting_avg_skew finished in 1.23 seconds
+[LOG] 	away_batting_leverage_index_avg_mean finished in 0.95 seconds
+[LOG] 	away_batting_onbase_perc_mean finished in 1.25 seconds
+[LOG] 	away_batting_onbase_perc_skew finished in 1.15 seconds
+[LOG] 	filling away_pitching_BB_batters_faced_skew with mean
+[LOG] 	home_pitcher_wpa_def_std finished in 1.83 seconds
+[LOG] 	away_batting_onbase_perc_std finished in 1.20 seconds
+[LOG] 	filling away_pitching_leverage_index_avg_mean with mean
+[LOG] 	away_batting_onbase_plus_slugging_skew finished in 1.09 seconds
+[LOG] 	away_batting_onbase_plus_slugging_mean finished in 1.22 seconds
+[LOG] 	filling away_pitching_leverage_index_avg_std with mean
+[LOG] 	filling away_pitching_leverage_index_avg_skew with mean
+[LOG] 	away_batting_leverage_index_avg_std finished in 1.06 seconds
+[LOG] 	away_batting_onbase_plus_slugging_std finished in 1.25 seconds
+[LOG] 	filling away_pitching_wpa_def_mean with mean
+[LOG] 	away_batting_wpa_bat_skew finished in 0.90 seconds
+[LOG] 	filling away_pitching_wpa_def_std with mean
+[LOG] 	away_batting_wpa_bat_mean finished in 1.07 seconds
+[LOG] 	filling away_pitching_wpa_def_skew with mean
+[LOG] 	filling away_pitcher_earned_run_avg_mean with mean
+[LOG] 	away_batting_wpa_bat_std finished in 1.12 seconds
+[LOG] 	away_pitching_earned_run_avg_std finished in 0.86 seconds
+[LOG] 	filling away_pitcher_earned_run_avg_std with mean
+[LOG] 	away_batting_RBI_mean finished in 1.05 seconds
+[LOG] 	home_pitcher_wpa_def_skew finished in 2.18 seconds
+[LOG] 	filling away_pitcher_earned_run_avg_skew with mean
+[LOG] 	away_batting_RBI_std finished in 1.04 seconds
+[LOG] 	away_batting_leverage_index_avg_skew finished in 1.31 seconds
+[LOG] 	filling away_pitcher_SO_batters_faced_mean with mean
+[LOG] 	away_batting_RBI_skew finished in 1.07 seconds
+[LOG] 	filling away_pitcher_SO_batters_faced_std with mean
+[LOG] 	away_pitching_SO_batters_faced_std finished in 0.89 seconds
+[LOG] 	away_pitching_SO_batters_faced_mean finished in 0.92 seconds
+[LOG] 	filling away_pitcher_SO_batters_faced_skew with mean
+[LOG] 	filling away_pitcher_H_batters_faced_mean with mean
+[LOG] 	away_pitching_earned_run_avg_mean finished in 1.14 seconds
+[LOG] 	filling away_pitcher_H_batters_faced_std with mean
+[LOG] 	filling away_pitcher_H_batters_faced_skew with mean
+[LOG] 	filling away_pitcher_BB_batters_faced_mean with mean
+[LOG] 	filling away_pitcher_BB_batters_faced_std with mean
+[LOG] 	away_pitching_earned_run_avg_skew finished in 1.16 seconds
+[LOG] 	filling away_pitcher_BB_batters_faced_skew with mean
+[LOG] 	away_pitching_SO_batters_faced_skew finished in 1.06 seconds
+[LOG] 	filling away_pitcher_leverage_index_avg_mean with mean
+[LOG] 	away_pitching_H_batters_faced_mean finished in 1.04 seconds
+[LOG] 	away_pitching_H_batters_faced_std finished in 1.01 seconds
+[LOG] 	filling away_pitcher_leverage_index_avg_std with mean
+[LOG] 	filling away_pitcher_leverage_index_avg_skew with mean
+[LOG] 	filling away_pitcher_wpa_def_mean with mean
+[LOG] 	away_pitching_BB_batters_faced_mean finished in 1.03 seconds
+[LOG] 	filling away_pitcher_wpa_def_std with mean
+[LOG] 	filling away_pitcher_wpa_def_skew with mean
+[LOG] 	away_pitching_H_batters_faced_skew finished in 1.17 seconds
+[LOG] 	away_pitching_leverage_index_avg_std finished in 0.96 seconds
+[LOG] 	away_pitching_wpa_def_mean finished in 0.90 seconds
+[LOG] 	away_pitching_wpa_def_std finished in 0.90 seconds
+[LOG] 	away_pitching_leverage_index_avg_mean finished in 1.08 seconds
+[LOG] 	away_pitching_BB_batters_faced_skew finished in 1.15 seconds
+[LOG] 	away_pitching_wpa_def_skew finished in 0.89 seconds
+[LOG] 	away_pitching_BB_batters_faced_std finished in 1.23 seconds
+[LOG] 	away_pitching_leverage_index_avg_skew finished in 1.11 seconds
+[LOG] 	away_pitcher_earned_run_avg_mean finished in 1.16 seconds
+[LOG] 	away_pitcher_SO_batters_faced_std finished in 1.18 seconds
+[LOG] 	away_pitcher_leverage_index_avg_mean finished in 0.97 seconds
+[LOG] 	away_pitcher_SO_batters_faced_mean finished in 1.33 seconds
+[LOG] 	away_pitcher_BB_batters_faced_mean finished in 1.11 seconds
+[WARNING] 	away_pitcher_BB_batters_faced_mean still has NaN valuesm at:
+
+      away_pitcher_BB_batters_faced_mean away_team_abbr  season
+4924                                 NaN            VQC  2020.0
+	fill with mean of the whole data
+[LOG] 	away_pitcher_H_batters_faced_mean finished in 1.22 seconds
+[LOG] 	away_pitcher_BB_batters_faced_std finished in 1.19 seconds
+[LOG] 	away_pitcher_wpa_def_mean finished in 1.04 seconds
+[LOG] 	away_pitcher_earned_run_avg_std finished in 1.61 seconds
+[LOG] 	away_pitcher_SO_batters_faced_skew finished in 1.45 seconds
+[LOG] 	away_pitcher_earned_run_avg_skew finished in 1.59 seconds
+[LOG] 	away_pitcher_H_batters_faced_std finished in 1.46 seconds
+[LOG] 	away_pitcher_leverage_index_avg_std finished in 1.34 seconds
+[LOG] 	away_pitcher_wpa_def_std finished in 1.37 seconds
+[LOG] 	away_pitcher_BB_batters_faced_skew finished in 1.65 seconds
+[LOG] 	away_pitcher_H_batters_faced_skew finished in 1.76 seconds
+[LOG] 	away_pitcher_wpa_def_skew finished in 1.52 seconds
+[LOG] 	away_pitcher_leverage_index_avg_skew finished in 1.68 seconds
+[LOG] 	all finished in 14.83 seconds
+[LOG] 	start fill NaN of 2024_test_data
+[LOG] 	filling season with random
+[LOG] 	season finished in 0.00 seconds
+[LOG] 	filling is_night_game with random
+[LOG] 	is_night_game finished in 0.01 seconds
+[LOG] 	filling home_pitcher with mode
+[LOG] 	filling away_pitcher with mode
+[LOG] 	filling home_team_rest with mode
+[LOG] 	filling home_pitcher_rest with mode
+[LOG] 	filling away_team_rest with mode
+[LOG] 	filling away_pitcher_rest with mode
+[LOG] 	filling home_batting_batting_avg_10RA with mean
+[LOG] 	filling home_batting_onbase_perc_10RA with mean
+[LOG] 	filling home_batting_onbase_plus_slugging_10RA with mean
+[LOG] 	filling home_batting_leverage_index_avg_10RA with mean
+[LOG] 	filling home_batting_RBI_10RA with mean
+[LOG] 	filling home_pitching_earned_run_avg_10RA with mean
+[LOG] 	filling home_pitching_SO_batters_faced_10RA with mean
+[LOG] 	filling home_pitching_H_batters_faced_10RA with mean
+[LOG] 	filling home_pitching_BB_batters_faced_10RA with mean
+[LOG] 	filling home_pitcher_earned_run_avg_10RA with mean
+[LOG] 	filling home_pitcher_SO_batters_faced_10RA with mean
+[LOG] 	filling home_pitcher_H_batters_faced_10RA with mean
+[LOG] 	filling home_pitcher_BB_batters_faced_10RA with mean
+[LOG] 	filling away_batting_batting_avg_10RA with mean
+[LOG] 	filling away_batting_onbase_perc_10RA with mean
+[LOG] 	filling away_batting_onbase_plus_slugging_10RA with mean
+[LOG] 	filling away_batting_leverage_index_avg_10RA with mean
+[LOG] 	away_pitcher finished in 0.39 seconds
+[LOG] 	filling away_pitching_earned_run_avg_10RA with mean
+[LOG] 	filling away_batting_RBI_10RA with mean
+[LOG] 	home_pitcher finished in 0.42 seconds
+[LOG] 	filling away_pitching_SO_batters_faced_10RA with mean
+[LOG] 	filling away_pitching_H_batters_faced_10RA with mean
+[LOG] 	home_batting_batting_avg_10RA finished in 0.36 seconds
+[LOG] 	home_batting_onbase_plus_slugging_10RA finished in 0.34 seconds
+[LOG] 	filling away_pitching_BB_batters_faced_10RA with mean
+[LOG] 	home_batting_leverage_index_avg_10RA finished in 0.35 seconds
+[LOG] 	home_batting_onbase_perc_10RA finished in 0.38 seconds
+[LOG] 	filling away_pitcher_earned_run_avg_10RA with mean
+[LOG] 	filling away_pitcher_SO_batters_faced_10RA with mean
+[LOG] 	home_team_rest finished in 0.49 seconds
+[LOG] 	filling away_pitcher_H_batters_faced_10RA with mean
+[LOG] 	away_team_rest finished in 0.48 seconds
+[LOG] 	filling away_pitcher_BB_batters_faced_10RA with mean
+[LOG] 	filling home_team_errors_mean with mean
+[LOG] 	filling home_team_errors_std with mean
+[LOG] 	filling home_team_errors_skew with mean
+[LOG] 	home_batting_RBI_10RA finished in 0.45 seconds
+[LOG] 	filling home_team_spread_mean with mean
+[LOG] 	filling home_team_spread_std with mean
+[LOG] 	filling home_team_spread_skew with mean
+[LOG] 	filling home_team_wins_mean with mean
+[LOG] 	filling home_team_wins_std with mean
+[LOG] 	home_pitching_BB_batters_faced_10RA finished in 0.49 seconds
+[LOG] 	home_pitching_H_batters_faced_10RA finished in 0.51 seconds
+[LOG] 	filling home_team_wins_skew with mean
+[LOG] 	filling home_batting_batting_avg_mean with mean
+[LOG] 	away_pitching_earned_run_avg_10RA finished in 0.34 seconds
+[LOG] 	filling home_batting_batting_avg_std with mean
+[LOG] 	home_pitching_earned_run_avg_10RA finished in 0.59 seconds
+[LOG] 	away_batting_RBI_10RA finished in 0.37 seconds
+[LOG] 	home_pitching_SO_batters_faced_10RA finished in 0.59 seconds
+[LOG] 	filling home_batting_batting_avg_skew with mean
+[LOG] 	filling home_batting_onbase_perc_mean with mean
+[LOG] 	away_pitching_H_batters_faced_10RA finished in 0.38 seconds
+[LOG] 	filling home_batting_onbase_perc_std with mean
+[LOG] 	filling home_batting_onbase_perc_skew with mean
+[LOG] 	away_batting_onbase_perc_10RA finished in 0.50 seconds
+[LOG] 	away_batting_onbase_plus_slugging_10RA finished in 0.49 seconds
+[LOG] 	filling home_batting_onbase_plus_slugging_mean with mean
+[LOG] 	home_pitcher_rest finished in 0.82 seconds
+[LOG] 	filling home_batting_onbase_plus_slugging_std with mean
+[LOG] 	home_pitcher_earned_run_avg_10RA finished in 0.64 seconds
+[LOG] 	away_batting_batting_avg_10RA finished in 0.57 seconds
+[LOG] 	filling home_batting_onbase_plus_slugging_skew with mean
+[LOG] 	filling home_batting_leverage_index_avg_mean with mean
+[LOG] 	away_pitching_SO_batters_faced_10RA finished in 0.49 seconds
+[LOG] 	away_batting_leverage_index_avg_10RA finished in 0.55 seconds
+[LOG] 	filling home_batting_leverage_index_avg_std with mean
+[LOG] 	filling home_batting_leverage_index_avg_skew with mean
+[LOG] 	filling home_batting_wpa_bat_mean with mean
+[LOG] 	home_team_errors_mean finished in 0.43 seconds
+[LOG] 	home_team_spread_mean finished in 0.38 seconds
+[LOG] 	home_team_errors_std finished in 0.43 seconds
+[LOG] 	filling home_batting_wpa_bat_std with mean
+[LOG] 	filling home_batting_wpa_bat_skew with mean
+[LOG] 	filling home_batting_RBI_mean with mean
+[LOG] 	away_pitching_BB_batters_faced_10RA finished in 0.58 seconds
+[LOG] 	home_team_spread_skew finished in 0.41 seconds
+[LOG] 	filling home_batting_RBI_std with mean
+[LOG] 	home_pitcher_H_batters_faced_10RA finished in 0.83 seconds
+[LOG] 	filling home_batting_RBI_skew with mean
+[LOG] 	home_team_spread_std finished in 0.49 seconds
+[LOG] 	filling home_pitching_earned_run_avg_mean with mean
+[LOG] 	away_pitcher_earned_run_avg_10RA finished in 0.63 seconds
+[LOG] 	filling home_pitching_earned_run_avg_std with mean
+[LOG] 	home_team_errors_skew finished in 0.56 seconds
+[LOG] 	filling home_pitching_earned_run_avg_skew with mean
+[LOG] 	home_pitcher_BB_batters_faced_10RA finished in 0.85 seconds
+[LOG] 	away_pitcher_SO_batters_faced_10RA finished in 0.65 seconds
+[LOG] 	filling home_pitching_SO_batters_faced_mean with mean
+[LOG] 	home_team_wins_mean finished in 0.51 seconds
+[LOG] 	away_pitcher_rest finished in 1.11 seconds
+[LOG] 	filling home_pitching_SO_batters_faced_std with mean
+[LOG] 	away_pitcher_H_batters_faced_10RA finished in 0.68 seconds
+[LOG] 	filling home_pitching_SO_batters_faced_skew with mean
+[LOG] 	filling home_pitching_H_batters_faced_mean with mean
+[LOG] 	home_batting_onbase_plus_slugging_mean finished in 0.36 seconds
+[LOG] 	filling home_pitching_H_batters_faced_std with mean
+[LOG] 	home_team_wins_std finished in 0.52 seconds
+[LOG] 	filling home_pitching_H_batters_faced_skew with mean
+[LOG] 	filling home_pitching_BB_batters_faced_mean with mean
+[LOG] 	home_batting_leverage_index_avg_mean finished in 0.36 seconds
+[LOG] 	home_batting_batting_avg_mean finished in 0.52 seconds
+[LOG] 	filling home_pitching_BB_batters_faced_std with mean
+[LOG] 	home_batting_onbase_perc_skew finished in 0.43 seconds
+[LOG] 	home_pitcher_SO_batters_faced_10RA finished in 1.03 seconds
+[LOG] 	home_batting_onbase_plus_slugging_std finished in 0.41 seconds
+[LOG] 	filling home_pitching_BB_batters_faced_skew with mean
+[LOG] 	home_batting_batting_avg_skew finished in 0.50 seconds
+[LOG] 	filling home_pitching_leverage_index_avg_mean with mean
+[LOG] 	filling home_pitching_leverage_index_avg_std with mean
+[LOG] 	away_pitcher_BB_batters_faced_10RA finished in 0.78 seconds
+[LOG] 	filling home_pitching_leverage_index_avg_skew with mean
+[LOG] 	filling home_pitching_wpa_def_mean with mean
+[LOG] 	filling home_pitching_wpa_def_std with mean
+[LOG] 	home_batting_onbase_perc_std finished in 0.54 seconds
+[LOG] 	home_batting_onbase_perc_mean finished in 0.55 seconds
+[LOG] 	home_batting_batting_avg_std finished in 0.62 seconds
+[LOG] 	home_team_wins_skew finished in 0.66 seconds
+[LOG] 	filling home_pitching_wpa_def_skew with mean
+[LOG] 	filling home_pitcher_earned_run_avg_mean with mean
+[LOG] 	home_batting_leverage_index_avg_std finished in 0.50 seconds
+[LOG] 	filling home_pitcher_earned_run_avg_std with mean
+[LOG] 	home_batting_onbase_plus_slugging_skew finished in 0.56 seconds
+[LOG] 	filling home_pitcher_earned_run_avg_skew with mean
+[LOG] 	home_batting_RBI_mean finished in 0.43 seconds[LOG] 	home_batting_wpa_bat_mean finished in 0.50 seconds
+
+[LOG] 	home_batting_RBI_std finished in 0.41 seconds
+[LOG] 	filling home_pitcher_SO_batters_faced_mean with mean
+[LOG] 	filling home_pitcher_SO_batters_faced_std with mean
+[LOG] 	home_batting_leverage_index_avg_skew finished in 0.57 seconds
+[LOG] 	home_batting_wpa_bat_std finished in 0.50 seconds
+[LOG] 	filling home_pitcher_SO_batters_faced_skew with mean
+[LOG] 	home_pitching_SO_batters_faced_mean finished in 0.36 seconds
+[LOG] 	filling home_pitcher_H_batters_faced_mean with mean
+[LOG] 	filling home_pitcher_H_batters_faced_std with mean
+[LOG] 	home_batting_RBI_skew finished in 0.46 seconds
+[LOG] 	filling home_pitcher_H_batters_faced_skew with mean
+[LOG] 	home_batting_wpa_bat_skew finished in 0.57 seconds
+[LOG] 	filling home_pitcher_BB_batters_faced_mean with mean
+[LOG] 	home_pitching_BB_batters_faced_mean finished in 0.37 seconds
+[LOG] 	filling home_pitcher_BB_batters_faced_std with mean
+[LOG] 	filling home_pitcher_BB_batters_faced_skew with mean
+[LOG] 	home_pitching_earned_run_avg_mean finished in 0.51 seconds
+[LOG] 	home_pitching_earned_run_avg_std finished in 0.50 seconds
+[LOG] 	home_pitching_H_batters_faced_mean finished in 0.44 seconds
+[LOG] 	filling home_pitcher_leverage_index_avg_mean with mean
+[LOG] 	filling home_pitcher_leverage_index_avg_std with mean
+[LOG] 	home_pitching_BB_batters_faced_std finished in 0.41 seconds
+[LOG] 	filling home_pitcher_leverage_index_avg_skew with mean
+[LOG] 	home_pitching_wpa_def_mean finished in 0.35 seconds
+[LOG] 	home_pitching_earned_run_avg_skew finished in 0.55 seconds
+[LOG] 	home_pitching_leverage_index_avg_std finished in 0.39 seconds
+[LOG] 	filling home_pitcher_wpa_def_mean with mean
+[LOG] 	filling home_pitcher_wpa_def_std with mean
+[LOG] 	filling home_pitcher_wpa_def_skew with mean
+[LOG] 	home_pitching_SO_batters_faced_std finished in 0.55 seconds
+[LOG] 	filling away_team_errors_mean with mean
+[LOG] 	home_pitching_H_batters_faced_std finished in 0.54 seconds
+[LOG] 	filling away_team_errors_std with mean
+[LOG] 	home_pitching_SO_batters_faced_skew finished in 0.58 seconds
+[LOG] 	filling away_team_errors_skew with mean
+[LOG] 	home_pitching_leverage_index_avg_mean finished in 0.51 seconds
+[LOG] 	filling away_team_spread_mean with mean
+[LOG] 	filling away_team_spread_std with mean
+[LOG] 	filling away_team_spread_skew with mean
+[LOG] 	filling away_team_wins_mean with mean
+[LOG] 	home_pitching_wpa_def_std finished in 0.52 seconds
+[LOG] 	filling away_team_wins_std with mean
+[LOG] 	home_pitching_BB_batters_faced_skew finished in 0.60 seconds
+[LOG] 	home_pitching_H_batters_faced_skew finished in 0.66 seconds
+[LOG] 	filling away_team_wins_skew with mean
+[LOG] 	filling away_batting_batting_avg_mean with mean
+[LOG] 	filling away_batting_batting_avg_std with mean
+[LOG] 	filling away_batting_batting_avg_skew with mean
+[LOG] 	filling away_batting_onbase_perc_mean with mean
+[LOG] 	filling away_batting_onbase_perc_std with mean
+[LOG] 	filling away_batting_onbase_perc_skew with mean
+[LOG] 	filling away_batting_onbase_plus_slugging_mean with mean
+[LOG] 	filling away_batting_onbase_plus_slugging_std with mean
+[LOG] 	home_pitching_leverage_index_avg_skew finished in 0.72 seconds
+[LOG] 	filling away_batting_onbase_plus_slugging_skew with mean
+[LOG] 	home_pitching_wpa_def_skew finished in 0.71 seconds
+[LOG] 	filling away_batting_leverage_index_avg_mean with mean
+[LOG] 	filling away_batting_leverage_index_avg_std with mean
+[LOG] 	filling away_batting_leverage_index_avg_skew with mean
+[LOG] 	filling away_batting_wpa_bat_mean with mean
+[LOG] 	filling away_batting_wpa_bat_std with mean
+[LOG] 	filling away_batting_wpa_bat_skew with mean
+[LOG] 	away_team_errors_mean finished in 0.50 seconds
+[LOG] 	away_team_spread_std finished in 0.45 seconds
+[LOG] 	filling away_batting_RBI_mean with mean
+[LOG] 	away_team_errors_std finished in 0.53 seconds
+[LOG] 	home_pitcher_H_batters_faced_mean finished in 0.77 seconds
+[LOG] 	filling away_batting_RBI_std with mean
+[LOG] 	filling away_batting_RBI_skew with mean
+[LOG] 	filling away_pitching_earned_run_avg_mean with mean
+[LOG] 	away_team_spread_mean finished in 0.54 seconds
+[LOG] 	home_pitcher_earned_run_avg_mean finished in 0.96 seconds
+[LOG] 	filling away_pitching_earned_run_avg_std with mean
+[LOG] 	filling away_pitching_earned_run_avg_skew with mean
+[LOG] 	filling away_pitching_SO_batters_faced_mean with mean
+[LOG] 	home_pitcher_BB_batters_faced_mean finished in 0.83 seconds
+[LOG] 	home_pitcher_earned_run_avg_std finished in 1.02 seconds
+[LOG] 	filling away_pitching_SO_batters_faced_std with mean
+[LOG] 	away_team_errors_skew finished in 0.67 seconds
+[LOG] 	filling away_pitching_SO_batters_faced_skew with mean
+[LOG] 	filling away_pitching_H_batters_faced_mean with mean
+[LOG] 	filling away_pitching_H_batters_faced_std with mean
+[LOG] 	away_team_wins_std finished in 0.65 seconds
+[LOG] 	away_team_wins_mean finished in 0.68 seconds
+[LOG] 	filling away_pitching_H_batters_faced_skew with mean
+[LOG] 	away_batting_batting_avg_std finished in 0.66 seconds
+[LOG] 	away_team_spread_skew finished in 0.73 seconds
+[LOG] 	filling away_pitching_BB_batters_faced_mean with mean
+[LOG] 	away_batting_onbase_perc_std finished in 0.61 seconds
+[LOG] 	away_batting_batting_avg_mean finished in 0.70 seconds
+[LOG] 	filling away_pitching_BB_batters_faced_std with mean
+[LOG] 	home_pitcher_leverage_index_avg_mean finished in 0.99 seconds
+[LOG] 	away_batting_onbase_plus_slugging_mean finished in 0.61 seconds
+[LOG] 	away_batting_onbase_perc_mean finished in 0.70 seconds
+[LOG] 	filling away_pitching_BB_batters_faced_skew with mean
+[LOG] 	home_pitcher_SO_batters_faced_std finished in 1.19 seconds
+[LOG] 	filling away_pitching_leverage_index_avg_mean with mean
+[LOG] 	filling away_pitching_leverage_index_avg_std with mean
+[LOG] 	away_batting_leverage_index_avg_mean finished in 0.61 seconds[LOG] 	filling away_pitching_leverage_index_avg_skew with mean
+[LOG] 	away_batting_batting_avg_skew finished in 0.81 seconds
+[LOG] 	filling away_pitching_wpa_def_mean with mean
+
+[LOG] 	home_pitcher_H_batters_faced_std finished in 1.23 seconds
+[LOG] 	filling away_pitching_wpa_def_std with mean
+[LOG] 	filling away_pitching_wpa_def_skew with mean
+[LOG] 	away_batting_onbase_perc_skew finished in 0.78 seconds
+[LOG] 	away_batting_onbase_plus_slugging_std finished in 0.76 seconds
+[LOG] 	home_pitcher_SO_batters_faced_mean finished in 1.33 seconds
+[LOG] 	away_team_wins_skew finished in 0.91 seconds
+[LOG] 	away_batting_leverage_index_avg_std finished in 0.69 seconds
+[LOG] 	away_batting_onbase_plus_slugging_skew finished in 0.75 seconds
+[LOG] 	filling away_pitcher_earned_run_avg_mean with mean
+[LOG] 	filling away_pitcher_earned_run_avg_std with mean
+[LOG] 	filling away_pitcher_earned_run_avg_skew with mean
+[LOG] 	home_pitcher_wpa_def_mean finished in 1.14 seconds
+[LOG] 	away_batting_RBI_mean finished in 0.56 seconds
+[LOG] 	filling away_pitcher_SO_batters_faced_mean with mean
+[LOG] 	away_batting_wpa_bat_std finished in 0.62 seconds
+[LOG] 	away_batting_wpa_bat_mean finished in 0.66 seconds
+[LOG] 	filling away_pitcher_SO_batters_faced_std with mean
+[LOG] 	away_pitching_earned_run_avg_mean finished in 0.54 seconds
+[LOG] 	filling away_pitcher_SO_batters_faced_skew with mean
+[LOG] 	away_batting_RBI_skew finished in 0.58 seconds
+[LOG] 	filling away_pitcher_H_batters_faced_mean with mean
+[LOG] 	filling away_pitcher_H_batters_faced_std with mean
+[LOG] 	filling away_pitcher_H_batters_faced_skew with mean
+[LOG] 	filling away_pitcher_BB_batters_faced_mean with mean
+[LOG] 	away_batting_leverage_index_avg_skew finished in 0.80 seconds
+[LOG] 	filling away_pitcher_BB_batters_faced_std with mean
+[LOG] 	filling away_pitcher_BB_batters_faced_skew with mean
+[LOG] 	filling away_pitcher_leverage_index_avg_mean with mean
+[LOG] 	away_batting_RBI_std finished in 0.67 seconds
+[LOG] 	filling away_pitcher_leverage_index_avg_std with mean
+[LOG] 	filling away_pitcher_leverage_index_avg_skew with mean
+[LOG] 	away_batting_wpa_bat_skew finished in 0.77 seconds
+[LOG] 	filling away_pitcher_wpa_def_mean with mean
+[LOG] 	filling away_pitcher_wpa_def_std with mean
+[LOG] 	filling away_pitcher_wpa_def_skew with mean
+[LOG] 	away_pitching_earned_run_avg_std finished in 0.65 seconds
+[LOG] 	away_pitching_SO_batters_faced_mean finished in 0.62 seconds
+[LOG] 	away_pitching_H_batters_faced_std finished in 0.57 seconds
+[LOG] 	home_pitcher_wpa_def_std finished in 1.40 seconds
+[LOG] 	home_pitcher_leverage_index_avg_std finished in 1.46 seconds
+[LOG] 	away_pitching_SO_batters_faced_std finished in 0.70 seconds
+[LOG] 	away_pitching_BB_batters_faced_std finished in 0.57 seconds
+[LOG] 	away_pitching_H_batters_faced_mean finished in 0.67 seconds
+[LOG] 	away_pitching_earned_run_avg_skew finished in 0.81 seconds
+[LOG] 	away_pitching_BB_batters_faced_mean finished in 0.65 seconds
+[LOG] 	home_pitcher_H_batters_faced_skew finished in 1.67 seconds
+[LOG] 	away_pitching_SO_batters_faced_skew finished in 0.76 seconds
+[LOG] 	away_pitching_H_batters_faced_skew finished in 0.74 seconds
+[LOG] 	away_pitching_leverage_index_avg_mean finished in 0.59 seconds
+[LOG] 	home_pitcher_BB_batters_faced_std finished in 1.72 seconds
+[LOG] 	home_pitcher_BB_batters_faced_skew finished in 1.72 seconds
+[LOG] 	away_pitching_BB_batters_faced_skew finished in 0.72 seconds
+[LOG] 	away_pitching_wpa_def_std finished in 0.59 seconds
+[LOG] 	home_pitcher_earned_run_avg_skew finished in 1.94 seconds
+[LOG] 	away_pitching_wpa_def_skew finished in 0.61 seconds
+[LOG] 	away_pitching_wpa_def_mean finished in 0.63 seconds
+[LOG] 	away_pitching_leverage_index_avg_std finished in 0.67 seconds
+[LOG] 	home_pitcher_SO_batters_faced_skew finished in 1.89 seconds
+[LOG] 	away_pitching_leverage_index_avg_skew finished in 0.71 seconds
+[LOG] 	away_pitcher_H_batters_faced_mean finished in 0.85 seconds
+[LOG] 	home_pitcher_wpa_def_skew finished in 2.08 seconds
+[LOG] 	away_pitcher_SO_batters_faced_mean finished in 0.97 seconds
+[LOG] 	away_pitcher_BB_batters_faced_mean finished in 0.88 seconds
+[LOG] 	away_pitcher_earned_run_avg_mean finished in 1.00 seconds
+[LOG] 	home_pitcher_leverage_index_avg_skew finished in 2.17 seconds
+[LOG] 	away_pitcher_leverage_index_avg_mean finished in 0.88 seconds
+[LOG] 	away_pitcher_earned_run_avg_std finished in 1.10 seconds
+[LOG] 	away_pitcher_BB_batters_faced_std finished in 1.15 seconds
+[LOG] 	away_pitcher_wpa_def_mean finished in 1.08 seconds
+[LOG] 	away_pitcher_wpa_def_std finished in 1.15 seconds
+[LOG] 	away_pitcher_H_batters_faced_std finished in 1.30 seconds
+[LOG] 	away_pitcher_earned_run_avg_skew finished in 1.43 seconds
+[LOG] 	away_pitcher_SO_batters_faced_std finished in 1.48 seconds
+[LOG] 	away_pitcher_leverage_index_avg_std finished in 1.38 seconds
+[LOG] 	away_pitcher_wpa_def_skew finished in 1.42 seconds
+[LOG] 	away_pitcher_H_batters_faced_skew finished in 1.73 seconds
+[LOG] 	away_pitcher_SO_batters_faced_skew finished in 1.77 seconds
+[LOG] 	away_pitcher_BB_batters_faced_skew finished in 1.75 seconds
+[LOG] 	away_pitcher_leverage_index_avg_skew finished in 1.76 seconds
+[LOG] 	all finished in 7.76 seconds

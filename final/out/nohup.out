@@ -1,0 +1,53 @@
+X:  (10964, 314)
+y:  (10964,)
+X_test:  (6185, 314)
+
+--- 1211_1319 ---
+
+[I 2024-12-11 13:19:54,803] A new study created in memory with name: no-name-ce6b6a12-7403-42d5-8a2b-0c47027bcbad
+start trial: 0
+start trial: 1start trial: 2
+start trial: 3
+
+start trial: 4start trial: 5
+
+start trial: 6
+start trial: 7
+start trial: 8
+start trial: 9
+start trial: 10
+start trial: 11
+start trial: 12
+start trial: 13start trial: 14start trial: 15
+
+start trial: 16
+
+start trial: 17
+start trial: 18
+start trial: 19
+[I 2024-12-11 16:22:23,567] Trial 7 finished with value: 0.5537649798043862 and parameters: {'learning_rate': 0.01952689693712594, 'C': 0.20825172656252777, 'meta_C': 1.5372708001171385}. Best is trial 7 with value: 0.5537649798043862.
+[I 2024-12-11 16:27:03,868] Trial 4 finished with value: 0.5617142904830257 and parameters: {'learning_rate': 0.11577062506217899, 'C': 0.15217346463918216, 'meta_C': 2.3788199930044196}. Best is trial 4 with value: 0.5617142904830257.
+[I 2024-12-11 16:27:34,580] Trial 8 finished with value: 0.5572203491671396 and parameters: {'learning_rate': 0.1816317153964298, 'C': 0.4825753485397759, 'meta_C': 1.9724038042265086}. Best is trial 4 with value: 0.5617142904830257.
+[I 2024-12-11 16:27:58,091] Trial 0 finished with value: 0.5537190806823113 and parameters: {'learning_rate': 0.07106719443434364, 'C': 6.661898595830579, 'meta_C': 0.8791842232516474}. Best is trial 4 with value: 0.5617142904830257.
+[I 2024-12-11 16:28:26,161] Trial 2 finished with value: 0.5496736989685215 and parameters: {'learning_rate': 0.1949525441999555, 'C': 0.33305317403957374, 'meta_C': 0.9151634678334636}. Best is trial 4 with value: 0.5617142904830257.
+[I 2024-12-11 16:28:28,911] Trial 3 finished with value: 0.5621065193443937 and parameters: {'learning_rate': 0.043898665262764335, 'C': 2.00740414702253, 'meta_C': 1.7565719764975865}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:28:41,358] Trial 9 finished with value: 0.560170410922322 and parameters: {'learning_rate': 0.06598322949726651, 'C': 6.3059980355776935, 'meta_C': 8.163306457348277}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:28:44,501] Trial 12 finished with value: 0.5561392162099008 and parameters: {'learning_rate': 0.17749614148752274, 'C': 7.36189982465594, 'meta_C': 1.071366408435074}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:28:59,513] Trial 17 finished with value: 0.5572662482892146 and parameters: {'learning_rate': 0.08215378878620794, 'C': 6.576046178343042, 'meta_C': 5.714149460414853}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:08,772] Trial 1 finished with value: 0.5531962479554027 and parameters: {'learning_rate': 0.11676772075532588, 'C': 0.6145642990607159, 'meta_C': 0.25152887661538254}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:25,853] Trial 11 finished with value: 0.5616153987381914 and parameters: {'learning_rate': 0.03462884168425065, 'C': 0.9991072317117513, 'meta_C': 4.974986679515577}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:31,175] Trial 14 finished with value: 0.5594602263243984 and parameters: {'learning_rate': 0.08115361227961126, 'C': 0.46312373491213005, 'meta_C': 2.094377368327352}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:32,369] Trial 13 finished with value: 0.55438336615816 and parameters: {'learning_rate': 0.19106589403943486, 'C': 0.6496654034472621, 'meta_C': 0.14603338740421692}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:38,317] Trial 10 finished with value: 0.5605697332843742 and parameters: {'learning_rate': 0.21897045984537195, 'C': 1.2959867091503794, 'meta_C': 0.2083527837159261}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:39,130] Trial 15 finished with value: 0.5533093267016056 and parameters: {'learning_rate': 0.04300339827493281, 'C': 7.22001327641469, 'meta_C': 0.1162258125196673}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:40,388] Trial 5 finished with value: 0.5591952632106019 and parameters: {'learning_rate': 0.08092036507953473, 'C': 0.18646696240111463, 'meta_C': 2.287723188849853}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:43,218] Trial 19 finished with value: 0.5522669993657576 and parameters: {'learning_rate': 0.12545655922881097, 'C': 8.155177917295893, 'meta_C': 2.244743671792047}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:47,148] Trial 16 finished with value: 0.555262960243015 and parameters: {'learning_rate': 0.06786288980710814, 'C': 2.7971188504009543, 'meta_C': 4.042397093610101}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:29:55,403] Trial 6 finished with value: 0.5538321594285143 and parameters: {'learning_rate': 0.08617366468884821, 'C': 9.47972374376691, 'meta_C': 0.5974603315487299}. Best is trial 3 with value: 0.5621065193443937.
+[I 2024-12-11 16:30:14,311] Trial 18 finished with value: 0.554870731381647 and parameters: {'learning_rate': 0.1345470248391285, 'C': 0.2621491540433931, 'meta_C': 6.4414380534441715}. Best is trial 3 with value: 0.5621065193443937.
+best parameters: {'learning_rate': 0.043898665262764335, 'C': 2.00740414702253, 'meta_C': 1.7565719764975865}
+best AUC: 0.5621065193443937
+
+start training
+prediction:
+execution time: 19968.23 sec
